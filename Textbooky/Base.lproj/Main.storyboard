@@ -165,7 +165,7 @@
         <!--Sell a Book-->
         <scene sceneID="Gfb-aa-4mH">
             <objects>
-                <viewController id="Ahi-e7-MVb" sceneMemberID="viewController">
+                <viewController id="Ahi-e7-MVb" customClass="SellABookViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xcn-fe-bt9"/>
                         <viewControllerLayoutGuide type="bottom" id="GXn-c9-0U1"/>
@@ -369,7 +369,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Sell a Book" id="JHo-KA-XuV">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="jdM-KU-3F1"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="jdM-KU-3F1">
+                            <connections>
+                                <action selector="pressedBack:" destination="Ahi-e7-MVb" id="2sA-9n-KXi"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DaP-u3-db5" userLabel="First Responder" sceneMemberID="firstResponder"/>
