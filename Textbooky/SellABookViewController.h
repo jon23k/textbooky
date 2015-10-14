@@ -10,4 +10,6 @@
 
 @interface SellABookViewController : UIViewController
 
+@property IBOutlet UIScrollView *scrollView;
+
 @end

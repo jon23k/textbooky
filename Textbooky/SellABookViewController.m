@@ -27,6 +27,10 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)viewDidLayoutSubviews {
+    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 700);
+}
+
 /*
 #pragma mark - Navigation
 

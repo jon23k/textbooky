@@ -12,4 +12,6 @@
 
 @property IBOutlet UIScrollView *scrollView;
 
+@property (nonatomic, weak) NSDictionary *listingObj;
+
 @end
