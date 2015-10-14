@@ -10,6 +10,8 @@
 		33BDA1381BCE08AE00B99D20 /* ListingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BDA1371BCE08AE00B99D20 /* ListingsTableViewController.m */; };
 		33BDA13B1BCE2C8F00B99D20 /* SellABookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BDA13A1BCE2C8F00B99D20 /* SellABookViewController.m */; };
 		33BDA13E1BCE456100B99D20 /* BookListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BDA13D1BCE456100B99D20 /* BookListingViewController.m */; };
+		33BDA1411BCECBA100B99D20 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BDA1401BCECBA100B99D20 /* ProfileViewController.m */; settings = {ASSET_TAGS = (); }; };
+		33BDA1441BCECC6F00B99D20 /* ListingObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BDA1431BCECC6F00B99D20 /* ListingObj.m */; settings = {ASSET_TAGS = (); }; };
 		F0C2029E1BBC38C600753ABB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2029D1BBC38C600753ABB /* main.m */; };
 		F0C202A11BBC38C600753ABB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C202A01BBC38C600753ABB /* AppDelegate.m */; };
 		F0C202A41BBC38C600753ABB /* Textbooky.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F0C202A21BBC38C600753ABB /* Textbooky.xcdatamodeld */; };
@@ -37,6 +39,10 @@
 		33BDA13A1BCE2C8F00B99D20 /* SellABookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SellABookViewController.m; sourceTree = "<group>"; };
 		33BDA13C1BCE456100B99D20 /* BookListingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookListingViewController.h; sourceTree = "<group>"; };
 		33BDA13D1BCE456100B99D20 /* BookListingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookListingViewController.m; sourceTree = "<group>"; };
+		33BDA13F1BCECBA100B99D20 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		33BDA1401BCECBA100B99D20 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		33BDA1421BCECC6F00B99D20 /* ListingObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListingObj.h; sourceTree = "<group>"; };
+		33BDA1431BCECC6F00B99D20 /* ListingObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListingObj.m; sourceTree = "<group>"; };
 		F0C202981BBC38C600753ABB /* Textbooky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Textbooky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0C2029C1BBC38C600753ABB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0C2029D1BBC38C600753ABB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -97,6 +103,10 @@
 				F0C202A51BBC38C600753ABB /* ViewController.h */,
 				F0C202A61BBC38C600753ABB /* ViewController.m */,
 				F0C202A81BBC38C600753ABB /* Main.storyboard */,
+				33BDA1421BCECC6F00B99D20 /* ListingObj.h */,
+				33BDA1431BCECC6F00B99D20 /* ListingObj.m */,
+				33BDA13F1BCECBA100B99D20 /* ProfileViewController.h */,
+				33BDA1401BCECBA100B99D20 /* ProfileViewController.m */,
 				33BDA13C1BCE456100B99D20 /* BookListingViewController.h */,
 				33BDA13D1BCE456100B99D20 /* BookListingViewController.m */,
 				33BDA1391BCE2C8F00B99D20 /* SellABookViewController.h */,
@@ -239,9 +249,11 @@
 			files = (
 				33BDA1381BCE08AE00B99D20 /* ListingsTableViewController.m in Sources */,
 				33BDA13B1BCE2C8F00B99D20 /* SellABookViewController.m in Sources */,
+				33BDA1411BCECBA100B99D20 /* ProfileViewController.m in Sources */,
 				F0C202A11BBC38C600753ABB /* AppDelegate.m in Sources */,
 				F0C202A41BBC38C600753ABB /* Textbooky.xcdatamodeld in Sources */,
 				33BDA13E1BCE456100B99D20 /* BookListingViewController.m in Sources */,
+				33BDA1441BCECC6F00B99D20 /* ListingObj.m in Sources */,
 				F0C202A71BBC38C600753ABB /* ViewController.m in Sources */,
 				F0C2029E1BBC38C600753ABB /* main.m in Sources */,
 			);
