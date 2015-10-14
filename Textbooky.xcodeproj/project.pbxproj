@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		33BDA1381BCE08AE00B99D20 /* ListingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BDA1371BCE08AE00B99D20 /* ListingsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
-		33BDA13B1BCE2C8F00B99D20 /* SellABookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BDA13A1BCE2C8F00B99D20 /* SellABookViewController.m */; settings = {ASSET_TAGS = (); }; };
-		33BDA13E1BCE456100B99D20 /* BookListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BDA13D1BCE456100B99D20 /* BookListingViewController.m */; settings = {ASSET_TAGS = (); }; };
+		33BDA1381BCE08AE00B99D20 /* ListingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BDA1371BCE08AE00B99D20 /* ListingsTableViewController.m */; };
+		33BDA13B1BCE2C8F00B99D20 /* SellABookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BDA13A1BCE2C8F00B99D20 /* SellABookViewController.m */; };
+		33BDA13E1BCE456100B99D20 /* BookListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BDA13D1BCE456100B99D20 /* BookListingViewController.m */; };
 		F0C2029E1BBC38C600753ABB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2029D1BBC38C600753ABB /* main.m */; };
 		F0C202A11BBC38C600753ABB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C202A01BBC38C600753ABB /* AppDelegate.m */; };
 		F0C202A41BBC38C600753ABB /* Textbooky.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F0C202A21BBC38C600753ABB /* Textbooky.xcdatamodeld */; };
