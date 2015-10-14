@@ -1,5 +1,5 @@
 //
-//  ListingsViewController.h
+//  ListingsTableViewController.h
 //  Textbooky
 //
 //  Created by Tayler How on 10/13/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ListingsViewController : UIViewController
+@interface ListingsTableViewController : UITableViewController
 
 @end
