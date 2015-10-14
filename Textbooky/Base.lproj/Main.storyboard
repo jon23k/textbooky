@@ -386,7 +386,7 @@
         <!--Book Listing-->
         <scene sceneID="ipC-wB-45C">
             <objects>
-                <viewController id="nar-Nk-TU9" sceneMemberID="viewController">
+                <viewController id="nar-Nk-TU9" customClass="BookListingViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hQC-of-nWG"/>
                         <viewControllerLayoutGuide type="bottom" id="Nw3-nF-qta"/>
@@ -395,57 +395,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ml5-A7-Ecn">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ml5-A7-Ecn">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ask-tQ-acf">
-                                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDV-G4-Tld">
-                                                <rect key="frame" x="8" y="8" width="42" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FwT-Ed-O38">
-                                                <rect key="frame" x="8" y="507" width="42" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="JDV-G4-Tld" firstAttribute="top" secondItem="Ask-tQ-acf" secondAttribute="top" constant="8" id="7Ty-2f-HG2"/>
-                                            <constraint firstItem="FwT-Ed-O38" firstAttribute="leading" secondItem="Ask-tQ-acf" secondAttribute="leading" constant="8" id="CrC-Jc-Mcb"/>
-                                            <constraint firstItem="JDV-G4-Tld" firstAttribute="leading" secondItem="Ask-tQ-acf" secondAttribute="leading" constant="8" id="Up9-HA-bhf"/>
-                                            <constraint firstItem="FwT-Ed-O38" firstAttribute="top" secondItem="JDV-G4-Tld" secondAttribute="bottom" constant="700" id="bYJ-Ta-tWC"/>
-                                        </constraints>
-                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xd9-Ny-N1k">
+                                        <rect key="frame" x="8" y="8" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ytf-Fy-iQR">
+                                        <rect key="frame" x="8" y="67" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ge5-xs-OdH">
+                                        <rect key="frame" x="8" y="147" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="Ask-tQ-acf" firstAttribute="leading" secondItem="Ml5-A7-Ecn" secondAttribute="leading" id="MrR-79-OJe"/>
-                                    <constraint firstItem="Ask-tQ-acf" firstAttribute="top" secondItem="Ml5-A7-Ecn" secondAttribute="top" constant="64" id="dbM-kN-RxZ"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ask-tQ-acf" secondAttribute="trailing" id="hVz-cH-avj"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ask-tQ-acf" secondAttribute="bottom" id="npQ-BJ-Y4f"/>
-                                    <constraint firstItem="Ask-tQ-acf" firstAttribute="centerY" secondItem="Ml5-A7-Ecn" secondAttribute="centerY" constant="32" id="pTG-9d-V3S"/>
-                                    <constraint firstItem="Ask-tQ-acf" firstAttribute="centerX" secondItem="Ml5-A7-Ecn" secondAttribute="centerX" id="zNc-dL-Edd"/>
-                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.56211450340000002" green="0.73505598409999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Ml5-A7-Ecn" firstAttribute="leading" secondItem="PK8-Rb-D5d" secondAttribute="leading" id="1IW-f2-yAs"/>
-                            <constraint firstItem="Nw3-nF-qta" firstAttribute="top" secondItem="Ml5-A7-Ecn" secondAttribute="bottom" id="EU8-JA-b67"/>
-                            <constraint firstItem="Ml5-A7-Ecn" firstAttribute="top" secondItem="hQC-of-nWG" secondAttribute="bottom" constant="-64" id="ayv-8X-OZJ"/>
-                            <constraint firstAttribute="trailing" secondItem="Ml5-A7-Ecn" secondAttribute="trailing" id="jLz-0v-wil"/>
+                            <constraint firstItem="Ml5-A7-Ecn" firstAttribute="leading" secondItem="PK8-Rb-D5d" secondAttribute="leading" id="BoF-hh-44B"/>
+                            <constraint firstItem="Nw3-nF-qta" firstAttribute="top" secondItem="Ml5-A7-Ecn" secondAttribute="bottom" id="UG8-Uk-HQm"/>
+                            <constraint firstAttribute="trailing" secondItem="Ml5-A7-Ecn" secondAttribute="trailing" id="Vec-oX-e7V"/>
+                            <constraint firstItem="Ml5-A7-Ecn" firstAttribute="top" secondItem="hQC-of-nWG" secondAttribute="bottom" constant="-64" id="tN2-Wc-k0h"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Book Listing" id="RT5-pl-ShO">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="HvC-MW-Tlc"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="HvC-MW-Tlc">
+                            <connections>
+                                <action selector="pressedBack:" destination="nar-Nk-TU9" id="GGp-kY-zOv"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="600"/>
+                    <connections>
+                        <outlet property="scrollView" destination="Ml5-A7-Ecn" id="PXB-Vp-1vY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ZG-Cf-3Uq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
