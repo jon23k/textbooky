@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -17,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zll-UD-Q9s">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zll-UD-Q9s">
                                 <rect key="frame" x="82" y="401" width="106" height="77"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -35,10 +37,10 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="S6C-Nm-y50" kind="modal" id="uP6-vc-veI"/>
+                                    <segue destination="S6C-Nm-y50" kind="show" id="uP6-vc-veI"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Yh-ob-5A7">
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Yh-ob-5A7">
                                 <rect key="frame" x="360" y="407" width="164" height="71"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -122,8 +124,8 @@
                                 </state>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
-                                        <exclude reference="nC8-Vw-zOc"/>
                                         <exclude reference="iNW-py-6AF"/>
+                                        <exclude reference="nC8-Vw-zOc"/>
                                     </mask>
                                 </variation>
                             </button>
@@ -194,12 +196,12 @@
                                 <exclude reference="463-Qh-ZtH"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Hq2-q3-9EU"/>
-                                <exclude reference="X56-6W-Zea"/>
-                                <exclude reference="hrE-CH-xcc"/>
                                 <exclude reference="6td-Ni-67O"/>
                                 <exclude reference="Ieo-sR-XT6"/>
                                 <exclude reference="fyc-Jh-08v"/>
+                                <exclude reference="Hq2-q3-9EU"/>
+                                <exclude reference="X56-6W-Zea"/>
+                                <exclude reference="hrE-CH-xcc"/>
                                 <exclude reference="7RC-kq-k3E"/>
                                 <exclude reference="Kga-Xl-zdX"/>
                                 <exclude reference="YPx-ld-wPS"/>
@@ -210,6 +212,7 @@
                                 <exclude reference="eJo-7M-bbc"/>
                                 <exclude reference="qEJ-Bo-7gZ"/>
                                 <exclude reference="rfq-xY-zzT"/>
+                                <exclude reference="bm2-w9-CAq"/>
                                 <exclude reference="9Pd-Pv-Yn6"/>
                                 <exclude reference="aYE-0c-SZl"/>
                                 <exclude reference="ee5-cE-J6S"/>
@@ -220,7 +223,6 @@
                                 <exclude reference="PWF-Ds-izR"/>
                                 <exclude reference="mb2-cR-B6A"/>
                                 <exclude reference="nUP-w7-64F"/>
-                                <exclude reference="bm2-w9-CAq"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -231,12 +233,12 @@
                                 <include reference="463-Qh-ZtH"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Hq2-q3-9EU"/>
-                                <include reference="X56-6W-Zea"/>
-                                <include reference="hrE-CH-xcc"/>
                                 <include reference="6td-Ni-67O"/>
                                 <include reference="Ieo-sR-XT6"/>
                                 <include reference="fyc-Jh-08v"/>
+                                <include reference="Hq2-q3-9EU"/>
+                                <include reference="X56-6W-Zea"/>
+                                <include reference="hrE-CH-xcc"/>
                                 <include reference="7RC-kq-k3E"/>
                                 <include reference="Kga-Xl-zdX"/>
                                 <include reference="YPx-ld-wPS"/>
@@ -251,6 +253,8 @@
                                 <exclude reference="gZd-dr-eeK"/>
                                 <include reference="qEJ-Bo-7gZ"/>
                                 <include reference="rfq-xY-zzT"/>
+                                <exclude reference="NEb-b5-yMi"/>
+                                <include reference="bm2-w9-CAq"/>
                                 <include reference="9Pd-Pv-Yn6"/>
                                 <include reference="aYE-0c-SZl"/>
                                 <include reference="ee5-cE-J6S"/>
@@ -261,8 +265,6 @@
                                 <include reference="PWF-Ds-izR"/>
                                 <include reference="mb2-cR-B6A"/>
                                 <include reference="nUP-w7-64F"/>
-                                <exclude reference="NEb-b5-yMi"/>
-                                <include reference="bm2-w9-CAq"/>
                             </mask>
                         </variation>
                     </view>
@@ -271,10 +273,10 @@
             </objects>
             <point key="canvasLocation" x="244.5" y="336.75"/>
         </scene>
-        <!--View Controller-->
+        <!--Listings View Controller-->
         <scene sceneID="t7i-NC-puC">
             <objects>
-                <viewController id="S6C-Nm-y50" sceneMemberID="viewController">
+                <viewController id="S6C-Nm-y50" customClass="ListingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tf3-BU-Mgl"/>
                         <viewControllerLayoutGuide type="bottom" id="dGv-Ff-EvM"/>
@@ -283,25 +285,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v06-AZ-cpJ">
-                                <rect key="frame" x="16" y="20" width="54" height="45"/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CEf-PD-IkA">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="54" id="mzZ-Ra-j9k"/>
+                                    <constraint firstAttribute="height" constant="44" id="wiv-hM-Pv8"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="16" y="20" width="54" height="40"/>
-                                    <mask key="constraints">
-                                        <exclude reference="mzZ-Ra-j9k"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <segue destination="vXZ-lx-hvc" kind="modal" id="ZNa-T2-fya"/>
-                                </connections>
-                            </button>
+                                <items>
+                                    <navigationItem title="Buy a Book" id="71X-J0-Xd5">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="TR8-TL-gjp">
+                                            <connections>
+                                                <action selector="pressedBack:" destination="S6C-Nm-y50" id="uKe-hU-Orz"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YWM-7O-PuP">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
@@ -348,9 +346,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.56211450340000002" green="0.73505598409999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="v06-AZ-cpJ" firstAttribute="leading" secondItem="jOe-Gq-VpU" secondAttribute="leadingMargin" id="R6w-4o-c6W"/>
-                            <constraint firstItem="v06-AZ-cpJ" firstAttribute="top" secondItem="Tf3-BU-Mgl" secondAttribute="bottom" id="kuM-qz-jMr"/>
-                            <constraint firstItem="dGv-Ff-EvM" firstAttribute="top" secondItem="v06-AZ-cpJ" secondAttribute="bottom" constant="535" id="ygc-pb-kBB"/>
+                            <constraint firstAttribute="trailing" secondItem="CEf-PD-IkA" secondAttribute="trailing" id="H8g-bV-ypV"/>
+                            <constraint firstItem="CEf-PD-IkA" firstAttribute="top" secondItem="jOe-Gq-VpU" secondAttribute="top" id="pH4-T1-XtE"/>
+                            <constraint firstItem="CEf-PD-IkA" firstAttribute="leading" secondItem="jOe-Gq-VpU" secondAttribute="leading" id="rKl-Tr-fgQ"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -368,11 +366,6 @@
                                 <include reference="3PW-Je-fdM"/>
                                 <include reference="yTD-7G-yH1"/>
                                 <include reference="KH0-PX-7Zf"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="R6w-4o-c6W"/>
-                                <exclude reference="kuM-qz-jMr"/>
-                                <exclude reference="ygc-pb-kBB"/>
                             </mask>
                         </variation>
                     </view>
@@ -408,7 +401,7 @@
                                     </mask>
                                 </variation>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qSX-iP-r8P">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qSX-iP-r8P">
                                 <rect key="frame" x="16" y="20" width="100" height="65"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="R7e-z5-vdH"/>
@@ -456,7 +449,4 @@
             <point key="canvasLocation" x="501" y="1057.5"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="b9a-Sm-yJB"/>
-    </inferredMetricsTieBreakers>
 </document>

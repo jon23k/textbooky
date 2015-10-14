@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33BDA1351BCDFD6300B99D20 /* ListingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BDA1341BCDFD6300B99D20 /* ListingsViewController.m */; settings = {ASSET_TAGS = (); }; };
 		F0C2029E1BBC38C600753ABB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2029D1BBC38C600753ABB /* main.m */; };
 		F0C202A11BBC38C600753ABB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C202A01BBC38C600753ABB /* AppDelegate.m */; };
 		F0C202A41BBC38C600753ABB /* Textbooky.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F0C202A21BBC38C600753ABB /* Textbooky.xcdatamodeld */; };
@@ -28,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		33BDA1331BCDFD6300B99D20 /* ListingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListingsViewController.h; sourceTree = "<group>"; };
+		33BDA1341BCDFD6300B99D20 /* ListingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListingsViewController.m; sourceTree = "<group>"; };
 		F0C202981BBC38C600753ABB /* Textbooky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Textbooky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0C2029C1BBC38C600753ABB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0C2029D1BBC38C600753ABB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -88,6 +91,8 @@
 				F0C202A51BBC38C600753ABB /* ViewController.h */,
 				F0C202A61BBC38C600753ABB /* ViewController.m */,
 				F0C202A81BBC38C600753ABB /* Main.storyboard */,
+				33BDA1331BCDFD6300B99D20 /* ListingsViewController.h */,
+				33BDA1341BCDFD6300B99D20 /* ListingsViewController.m */,
 				F0C202AB1BBC38C600753ABB /* Images.xcassets */,
 				F0C202AD1BBC38C600753ABB /* LaunchScreen.xib */,
 				F0C202A21BBC38C600753ABB /* Textbooky.xcdatamodeld */,
@@ -224,6 +229,7 @@
 			files = (
 				F0C202A11BBC38C600753ABB /* AppDelegate.m in Sources */,
 				F0C202A41BBC38C600753ABB /* Textbooky.xcdatamodeld in Sources */,
+				33BDA1351BCDFD6300B99D20 /* ListingsViewController.m in Sources */,
 				F0C202A71BBC38C600753ABB /* ViewController.m in Sources */,
 				F0C2029E1BBC38C600753ABB /* main.m in Sources */,
 			);
@@ -416,6 +422,7 @@
 				F0C202C01BBC38C600753ABB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F0C202C11BBC38C600753ABB /* Build configuration list for PBXNativeTarget "TextbookyTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +431,7 @@
 				F0C202C31BBC38C600753ABB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
