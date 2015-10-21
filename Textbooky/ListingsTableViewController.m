@@ -7,6 +7,7 @@
 //
 
 #import "ListingsTableViewController.h"
+#import "AFNetworking.h"
 
 @interface ListingsTableViewController ()
 
@@ -21,7 +22,15 @@
 #pragma mark - IBActions
 
 - (IBAction)pressedBack:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    //testing AFNetworking
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:@"http://jsonplaceholder.typicode.com/posts" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 #pragma mark - UITableViewController subclass
