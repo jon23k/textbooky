@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		338ED73E1BD72CD100DC08BC /* AFNetworking in Resources */ = {isa = PBXBuildFile; fileRef = 338ED73D1BD72CD100DC08BC /* AFNetworking */; settings = {ASSET_TAGS = (); }; };
 		33BDA1381BCE08AE00B99D20 /* ListingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BDA1371BCE08AE00B99D20 /* ListingsTableViewController.m */; };
 		33BDA13B1BCE2C8F00B99D20 /* SellABookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BDA13A1BCE2C8F00B99D20 /* SellABookViewController.m */; };
 		33BDA13E1BCE456100B99D20 /* BookListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BDA13D1BCE456100B99D20 /* BookListingViewController.m */; };
@@ -34,7 +33,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		338ED73D1BD72CD100DC08BC /* AFNetworking */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AFNetworking; sourceTree = "<group>"; };
 		33BDA1361BCE08AE00B99D20 /* ListingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListingsTableViewController.h; sourceTree = "<group>"; };
 		33BDA1371BCE08AE00B99D20 /* ListingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListingsTableViewController.m; sourceTree = "<group>"; };
 		33BDA1391BCE2C8F00B99D20 /* SellABookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SellABookViewController.h; sourceTree = "<group>"; };
@@ -82,7 +80,6 @@
 		F0C2028F1BBC38C600753ABB = {
 			isa = PBXGroup;
 			children = (
-				338ED73D1BD72CD100DC08BC /* AFNetworking */,
 				F0C2029A1BBC38C600753ABB /* Textbooky */,
 				F0C202B71BBC38C600753ABB /* TextbookyTests */,
 				F0C202991BBC38C600753ABB /* Products */,
@@ -233,7 +230,6 @@
 				F0C202AA1BBC38C600753ABB /* Main.storyboard in Resources */,
 				F0C202AF1BBC38C600753ABB /* LaunchScreen.xib in Resources */,
 				F0C202AC1BBC38C600753ABB /* Images.xcassets in Resources */,
-				338ED73E1BD72CD100DC08BC /* AFNetworking in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
