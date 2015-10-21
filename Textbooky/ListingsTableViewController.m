@@ -26,7 +26,7 @@
     
     //testing AFNetworking
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:@"http://jsonplaceholder.typicode.com/posts" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:@"http://jsonplaceholder.typicode.com/posts/1" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);

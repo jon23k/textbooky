@@ -394,7 +394,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Nw3-nF-qta"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PK8-Rb-D5d">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="700"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ml5-A7-Ecn">
@@ -436,6 +436,8 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="700"/>
                     <connections>
                         <outlet property="scrollView" destination="Ml5-A7-Ecn" id="PXB-Vp-1vY"/>
                     </connections>
