@@ -26,29 +26,17 @@
     
     //testing AFNetworking
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:@"http://jsonplaceholder.typicode.com/posts" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:@"http://jsonplaceholder.typicode.com/posts/1" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         
-        /*
-        NSError *jsonError;
-        NSData *objectData = [[NSString stringWithFormat:@"%@", responseObject] dataUsingEncoding:NSUTF8StringEncoding];
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:objectData
-                                                             options:NSJSONReadingMutableContainers
-                                                               error:&jsonError];
-        NSLog(@"info: %@", json[@"2"]);
-        */
+
+        NSLog(@"id: %@", [responseObject objectForKey:@"id"]);
+        NSArray *keys = [responseObject allKeys];
+        NSLog(@"key 1: %@", keys[0]);
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
-    
-    /*
-    NSError *jsonError;
-    NSData *objectData = [@"{\"2\":\"3\"}" dataUsingEncoding:NSUTF8StringEncoding];
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:objectData
-                                                         options:NSJSONReadingMutableContainers
-                                                        error:&jsonError];
-    NSLog(@"info: %@", json[@"2"]);
-    */
     
 }
 
