@@ -22,17 +22,19 @@
 #pragma mark - IBActions
 
 - (IBAction)pressedBack:(id)sender {
-//    [self dismissViewControllerAnimated:YES completion:nil];
-    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)testAPICall:(id)sender {
     //testing AFNetworking
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:@"http://jsonplaceholder.typicode.com/posts/1" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         
-
-        NSLog(@"id: %@", [responseObject objectForKey:@"id"]);
+        
+        NSLog(@"id value: %@", [responseObject objectForKey:@"id"]);
         NSArray *keys = [responseObject allKeys];
-        NSLog(@"key 1: %@", keys[0]);
+        NSLog(@"key 0: %@", keys[0]);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
@@ -77,6 +79,9 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"selectedBookListingSegue" sender:self];
+}
 
 /*
 // Override to support conditional editing of the table view.
