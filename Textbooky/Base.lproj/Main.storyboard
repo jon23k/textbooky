@@ -242,6 +242,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Test API Call" id="boO-2O-3Vn">
                             <connections>
                                 <action selector="testAPICall:" destination="6bU-aN-hSs" id="PFX-bk-LfH"/>
+                                <segue destination="nsO-w2-PoV" kind="show" id="qQQ-Df-MZO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -495,6 +496,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DaP-u3-db5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1713" y="1057"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="xV9-AD-d5a">
+            <objects>
+                <viewController id="nsO-w2-PoV" customClass="ListingsMapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="k3J-Uo-fsR"/>
+                        <viewControllerLayoutGuide type="bottom" id="bdF-w7-P7n"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3VC-1o-GHy">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LLR-8k-Chg">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="g9u-IM-J5S"/>
+                                    <barButtonItem title="Find Me" id="OFj-Ma-kV7">
+                                        <connections>
+                                            <action selector="pressedFindMe:" destination="nsO-w2-PoV" id="C2b-Lh-dpM"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3wF-jT-zVW">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LLR-8k-Chg" firstAttribute="leading" secondItem="3VC-1o-GHy" secondAttribute="leading" id="HVz-A3-bbA"/>
+                            <constraint firstItem="bdF-w7-P7n" firstAttribute="top" secondItem="LLR-8k-Chg" secondAttribute="bottom" id="Hbb-Dn-bbg"/>
+                            <constraint firstAttribute="trailing" secondItem="3wF-jT-zVW" secondAttribute="trailing" id="JeV-XB-i5Q"/>
+                            <constraint firstItem="3wF-jT-zVW" firstAttribute="leading" secondItem="3VC-1o-GHy" secondAttribute="leading" id="WSd-1q-1lA"/>
+                            <constraint firstAttribute="trailing" secondItem="LLR-8k-Chg" secondAttribute="trailing" id="cdB-In-lhO"/>
+                            <constraint firstItem="3wF-jT-zVW" firstAttribute="top" secondItem="k3J-Uo-fsR" secondAttribute="bottom" id="ocG-8z-Qep"/>
+                            <constraint firstItem="LLR-8k-Chg" firstAttribute="top" secondItem="3wF-jT-zVW" secondAttribute="bottom" id="xyA-Cb-OVi"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Map" id="FKB-FE-Hic"/>
+                    <connections>
+                        <outlet property="mapView" destination="3wF-jT-zVW" id="glW-dZ-tog"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jl0-7E-b10" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3221" y="-396"/>
         </scene>
         <!--Book Listing-->
         <scene sceneID="ipC-wB-45C">
@@ -1031,10 +1079,29 @@
             </objects>
             <point key="canvasLocation" x="975" y="-396"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0d9-fS-SUz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pbm-16-p0Y" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="z9v-Ii-gAj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nsO-w2-PoV" kind="relationship" relationship="rootViewController" id="DFj-LU-jaY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TSu-br-WIO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2487" y="-396"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="k99-n3-sAh"/>
         <segue reference="574-uB-4hh"/>
         <segue reference="xrZ-44-tct"/>
-        <segue reference="k99-n3-sAh"/>
+        <segue reference="DFj-LU-jaY"/>
     </inferredMetricsTieBreakers>
 </document>
