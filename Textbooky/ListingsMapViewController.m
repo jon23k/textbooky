@@ -21,9 +21,10 @@
 
 @implementation ListingsMapViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self initializeLocationManager];
+#pragma mark - IBActions
+
+- (IBAction)pressedBack:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)pressedCheckIn:(id)sender {
@@ -39,6 +40,13 @@
 //{
 //    self.annotationToAdd = annotatoin;
 //}
+
+# pragma mark - UIViewController subclass
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self initializeLocationManager];
+}
 
 - (void)viewDidAppear:(BOOL)animated;
 {
@@ -132,34 +140,25 @@
 #pragma mark - Private
 
 - (void)initializeLocationManager;
-{
-    NSLog(@"Initializing Location Manager Object!");
-    
+{    
     if (![CLLocationManager locationServicesEnabled]) {
-        NSLog(@"Location Services Disabled :(");
         return;
     }
     
     if(self.locationManager==nil){
         self.locationManager = [[CLLocationManager alloc] init];
-        NSLog(@"Initializing Location Services!");
     }
     
     self.locationManager.delegate = self;
     
     switch ([CLLocationManager authorizationStatus])  {
         case kCLAuthorizationStatusDenied:
-            NSLog(@"LS Authorization Denied");
         case kCLAuthorizationStatusRestricted:
-            NSLog(@"LS Authorization Restricted");
             return;
         case kCLAuthorizationStatusAuthorizedAlways:
-            NSLog(@"LS Authorization Always");
         case kCLAuthorizationStatusAuthorizedWhenInUse:
-            NSLog(@"LS Authorization In Use");
             return;
         case kCLAuthorizationStatusNotDetermined:
-            NSLog(@"Requesting LS Authorization");
             [self.locationManager requestWhenInUseAuthorization];
             return;
     }

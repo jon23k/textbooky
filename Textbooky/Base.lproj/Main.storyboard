@@ -239,10 +239,10 @@
                                 <action selector="pressedBack:" destination="6bU-aN-hSs" id="onr-gR-WWd"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Test API Call" id="boO-2O-3Vn">
+                        <barButtonItem key="rightBarButtonItem" title="Map" id="boO-2O-3Vn">
                             <connections>
                                 <action selector="testAPICall:" destination="6bU-aN-hSs" id="PFX-bk-LfH"/>
-                                <segue destination="nsO-w2-PoV" kind="show" id="qQQ-Df-MZO"/>
+                                <segue destination="pbm-16-p0Y" kind="show" id="FeB-Gm-Yk4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -535,7 +535,13 @@
                             <constraint firstItem="LLR-8k-Chg" firstAttribute="top" secondItem="3wF-jT-zVW" secondAttribute="bottom" id="xyA-Cb-OVi"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Map" id="FKB-FE-Hic"/>
+                    <navigationItem key="navigationItem" title="Map" id="FKB-FE-Hic">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="toi-lc-GJy">
+                            <connections>
+                                <action selector="pressedBack:" destination="nsO-w2-PoV" id="9WP-zP-3KN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="3wF-jT-zVW" id="glW-dZ-tog"/>
                     </connections>
@@ -721,9 +727,9 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qBM-3b-c2L">
                                         <rect key="frame" x="158" y="300" width="120.5" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <state key="normal" title="Diego Student">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="2bD-vA-xvo" kind="show" identifier="showUserForListingSegue" id="V47-ZY-uNB"/>
@@ -824,11 +830,11 @@
                         <viewControllerLayoutGuide type="bottom" id="gHR-vq-iqF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="f5G-AQ-BNA">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="700"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N2a-Sj-d81">
-                                <rect key="frame" x="222" y="118" width="155" height="155"/>
+                                <rect key="frame" x="197" y="118" width="205" height="205"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="N2a-Sj-d81" secondAttribute="height" multiplier="1:1" id="VML-X7-7Xl"/>
@@ -856,7 +862,7 @@
                                 </variation>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(name)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WmC-aV-5fP">
-                                <rect key="frame" x="150" y="285" width="300" height="30"/>
+                                <rect key="frame" x="150" y="335" width="300" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -871,21 +877,21 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(email)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQs-tv-AmC">
-                                <rect key="frame" x="150" y="323" width="300" height="30"/>
+                                <rect key="frame" x="150" y="373" width="300" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(phone)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5lu-cz-MK3">
-                                <rect key="frame" x="150" y="361" width="300" height="30"/>
+                                <rect key="frame" x="150" y="411" width="300" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sr-TN-n6B">
-                                <rect key="frame" x="100" y="487" width="400" height="30"/>
+                                <rect key="frame" x="100" y="537" width="400" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Edit Profile">
@@ -894,7 +900,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MDZ-HO-4XK">
-                                <rect key="frame" x="100" y="445" width="400" height="30"/>
+                                <rect key="frame" x="100" y="495" width="400" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Order History">
@@ -906,7 +912,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VGZ-bz-GJ0">
-                                <rect key="frame" x="100" y="403" width="400" height="30"/>
+                                <rect key="frame" x="100" y="453" width="400" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Book Listings">
@@ -1101,7 +1107,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="k99-n3-sAh"/>
         <segue reference="574-uB-4hh"/>
-        <segue reference="xrZ-44-tct"/>
-        <segue reference="DFj-LU-jaY"/>
+        <segue reference="V47-ZY-uNB"/>
     </inferredMetricsTieBreakers>
 </document>
