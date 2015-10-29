@@ -1,0 +1,6 @@
+List of things that still need to be implemented/fixed
+
+Create ViewController subclass for sign in page
+Add a creat account page
+Get API stuff/data management working w/ barts API
+Map/location services
