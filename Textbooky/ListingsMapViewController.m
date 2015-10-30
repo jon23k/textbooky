@@ -35,6 +35,7 @@
 //    NSLog(@"%f %f", self.mapView.centerCoordinate.latitude, self.mapView.centerCoordinate.longitude);
 
     //    self.mapCenteredOnUser = YES;
+
     self.mapView.userTrackingMode = MKUserTrackingModeFollow;
 }
 
@@ -73,8 +74,7 @@
     self.mapView.userTrackingMode = MKUserTrackingModeFollow;
     
     //Start updating user location
-    [self.locationManager startUpdatingLocation];
-    
+
     [self loadTestData];
 }
 
