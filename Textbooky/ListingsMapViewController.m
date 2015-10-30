@@ -74,6 +74,7 @@
     self.mapView.userTrackingMode = MKUserTrackingModeFollow;
     
     //Start updating user location
+    [self.locationManager startUpdatingLocation];
 
     [self loadTestData];
 }
