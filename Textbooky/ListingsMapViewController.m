@@ -65,7 +65,7 @@
     [super viewDidAppear:animated];
     
     //initialize locationManager if necessary
-//    [self initializeLocationManager];
+    [self initializeLocationManager];
     
     //Setup mapView, delegate, and default values
     self.mapView.delegate = self;

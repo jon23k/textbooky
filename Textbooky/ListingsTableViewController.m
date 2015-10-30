@@ -27,14 +27,24 @@
 
 - (IBAction)testAPICall:(id)sender {
     //testing AFNetworking
+    NSString *url = @"http://jsonplaceholder.typicode.com/posts/1";
+    
+    /*
+    NSString *listingsUrl = @"http://137.112.228.243:8000/listings";
+    NSString *usersUrl = @"http://137.112.228.243:8000/users";
+    NSString *photosUrl = @"http://137.112.228.243:8000/listingphotos";
+    NSString *reviewsUrl = @"http://137.112.228.243:8000/reviews";
+    */
+
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:@"http://jsonplaceholder.typicode.com/posts/1" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         
         
         NSLog(@"id value: %@", [responseObject objectForKey:@"id"]);
         NSArray *keys = [responseObject allKeys];
         NSLog(@"key 0: %@", keys[0]);
+        
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
