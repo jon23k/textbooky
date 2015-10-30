@@ -198,7 +198,7 @@
         <!--Create an Account-->
         <scene sceneID="gHQ-nP-joq">
             <objects>
-                <viewController id="JUE-li-a64" sceneMemberID="viewController">
+                <viewController id="JUE-li-a64" customClass="CreateAccountViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CdX-Zn-T9e"/>
                         <viewControllerLayoutGuide type="bottom" id="nsn-5W-YKy"/>
@@ -283,7 +283,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Create an Account" id="9Ao-ZE-c3o">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="oVC-Ky-AO0"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="oVC-Ky-AO0">
+                            <connections>
+                                <action selector="pressedBack:" destination="JUE-li-a64" id="cee-Qi-I3B"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YsH-vt-8sD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1227,6 +1231,6 @@
         <segue reference="k99-n3-sAh"/>
         <segue reference="574-uB-4hh"/>
         <segue reference="V47-ZY-uNB"/>
-        <segue reference="Xcc-yL-7za"/>
+        <segue reference="guB-DC-2FT"/>
     </inferredMetricsTieBreakers>
 </document>
