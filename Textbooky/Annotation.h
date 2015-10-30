@@ -12,7 +12,10 @@
 
 @interface Annotation : NSObject <MKAnnotation>
 
-- (id)initWithPlacemark:(CLPlacemark *)placemark andLocation:(MKUserLocation *)location NS_DESIGNATED_INITIALIZER;
+//- (id)initWithPlacemark:(CLPlacemark *)placemark andLocation:(MKUserLocation *)location NS_DESIGNATED_INITIALIZER;
+
+- (id)initWithLocation:(CLLocationCoordinate2D)location Title:(NSString *)title andSubtitle:(NSString *)subtitle NS_DESIGNATED_INITIALIZER;
+
 
 @property (nonatomic, assign) CLLocationCoordinate2D coordinate;
 

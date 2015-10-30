@@ -17,12 +17,24 @@
 
 @implementation Annotation
 
+/*
 - (id)initWithPlacemark:(CLPlacemark *)placemark andLocation:(MKUserLocation *)location;
 {
     if (self == [super init]){
         self.coordinate = location.coordinate;
         self.title = [placemark name];
         self.subtitle = [NSString stringWithFormat:@"%@, %@", [placemark locality], [placemark administrativeArea]];
+    }
+    return self;
+}
+*/
+
+- (id)initWithLocation:(CLLocationCoordinate2D)location Title:(NSString *)title andSubtitle:(NSString *)subtitle;
+{
+    if (self == [super init]){
+        self.coordinate = location;
+        self.title = title;
+        self.subtitle = subtitle;
     }
     return self;
 }

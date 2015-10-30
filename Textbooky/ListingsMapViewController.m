@@ -32,6 +32,8 @@
 }
 
 - (IBAction)pressedFindMe:(id)sender {
+//    NSLog(@"%f %f", self.mapView.centerCoordinate.latitude, self.mapView.centerCoordinate.longitude);
+
     //    self.mapCenteredOnUser = YES;
     self.mapView.userTrackingMode = MKUserTrackingModeFollow;
 }
@@ -40,6 +42,16 @@
 //{
 //    self.annotationToAdd = annotatoin;
 //}
+
+- (void)loadTestData {
+    CLLocationCoordinate2D test1 = CLLocationCoordinate2DMake(37.330574, -122.031219);
+    Annotation *annotation1 = [[Annotation alloc] initWithLocation:(test1) Title:@"Fund. of Calculus" andSubtitle:@"$70.00"];
+    [self.mapView addAnnotation:annotation1];
+    
+    CLLocationCoordinate2D test2 = CLLocationCoordinate2DMake(37.330154, -122.032419);
+    Annotation *annotation2 = [[Annotation alloc] initWithLocation:(test2) Title:@"EoPL" andSubtitle:@"$40.00"];
+    [self.mapView addAnnotation:annotation2];
+}
 
 # pragma mark - UIViewController subclass
 
@@ -62,6 +74,8 @@
     
     //Start updating user location
     [self.locationManager startUpdatingLocation];
+    
+    [self loadTestData];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
