@@ -14,6 +14,7 @@
 //dummy data
 @property (nonatomic, strong) NSArray *dummyBooks;
 @property (nonatomic, strong) NSArray *dummyPrices;
+@property (nonatomic, strong) NSArray *listings;
 
 @end
 
@@ -27,23 +28,26 @@
 
 - (IBAction)testAPICall:(id)sender {
     //testing AFNetworking
-    NSString *url = @"http://jsonplaceholder.typicode.com/posts/1";
+    NSString *placeholderUrl = @"http://jsonplaceholder.typicode.com/posts/1";
     
-    /*
-    NSString *listingsUrl = @"http://137.112.228.243:8000/listings";
-    NSString *usersUrl = @"http://137.112.228.243:8000/users";
-    NSString *photosUrl = @"http://137.112.228.243:8000/listingphotos";
-    NSString *reviewsUrl = @"http://137.112.228.243:8000/reviews";
-    */
+    
+    NSString *listingsUrl = @"http://textbooky.csse.rose-hulman.edu:8000/listings/";
+    NSString *usersUrl = @"http://textbooky.csse.rose-hulman.edu:8000/users/";
+    NSString *photosUrl = @"http://textbooky.csse.rose-hulman.edu:8000/listingphotos/";
+    NSString *reviewsUrl = @"http://textbooky.csse.rose-hulman.edu:8000/reviews/";
+    
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:listingsUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         
-        
+        /*
         NSLog(@"id value: %@", [responseObject objectForKey:@"id"]);
         NSArray *keys = [responseObject allKeys];
         NSLog(@"key 0: %@", keys[0]);
+        */
+        
+        self.listings = responseObject;
         
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -60,6 +64,34 @@
     //dummy data
     self.dummyBooks = @[ @"Fund. of Calculus, 12th Ed.", @"Greek Literature, 4th Ed.", @"EoPL, 3rd Ed." ];
     self.dummyPrices = @[ @"$78.00", @"$45.00", @"$52.00" ];
+    
+    //testing AFNetworking
+    NSString *placeholderUrl = @"http://jsonplaceholder.typicode.com/posts/1";
+    
+    
+    NSString *listingsUrl = @"http://textbooky.csse.rose-hulman.edu:8000/listings/";
+    NSString *usersUrl = @"http://textbooky.csse.rose-hulman.edu:8000/users/";
+    NSString *photosUrl = @"http://textbooky.csse.rose-hulman.edu:8000/listingphotos/";
+    NSString *reviewsUrl = @"http://textbooky.csse.rose-hulman.edu:8000/reviews/";
+    
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:listingsUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+        
+        /*
+         NSLog(@"id value: %@", [responseObject objectForKey:@"id"]);
+         NSArray *keys = [responseObject allKeys];
+         NSLog(@"key 0: %@", keys[0]);
+         */
+        
+        self.listings = responseObject;
+        [self.tableView reloadData];
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -73,7 +105,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dummyBooks.count;
+    return self.listings.count;
 }
 
 
@@ -84,9 +116,10 @@
     if (cell == nil){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
+    NSDictionary *currentListing = [self.listings objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = [self.dummyBooks objectAtIndex:indexPath.row];
-    cell.detailTextLabel.text = [self.dummyPrices objectAtIndex:indexPath.row];
+    cell.textLabel.text = [currentListing objectForKey:@"title"];
+    cell.detailTextLabel.text = [currentListing objectForKey:@"price"];
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     

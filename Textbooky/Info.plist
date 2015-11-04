@@ -42,6 +42,15 @@
 		<false/>
 		<key>NSExceptionDomains</key>
 		<dict>
+			<key>textbooky.csse.rose-hulman.edu</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSTemporaryExceptionMinimumTLSVersion</key>
+				<string>TLSv1.1</string>
+			</dict>
 			<key>jsonplaceholder.typicode.com</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
