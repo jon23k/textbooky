@@ -117,9 +117,21 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     NSDictionary *currentListing = [self.listings objectAtIndex:indexPath.row];
+
+    if ([[currentListing objectForKey:@"title"] class] == [NSNull class]) {
+        cell.textLabel.text = @"TITLE IS NULL";
+    }
+    else {
+        cell.textLabel.text = [currentListing objectForKey:@"title"];
+    }
     
-    cell.textLabel.text = [currentListing objectForKey:@"title"];
-    cell.detailTextLabel.text = [currentListing objectForKey:@"price"];
+    if ([[currentListing objectForKey:@"price"] class] == [NSNull class]) {
+        cell.detailTextLabel.text = @"PRICE IS NULL";
+    }
+    else {
+        cell.detailTextLabel.text = [currentListing objectForKey:@"price"];
+    }
+    
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
