@@ -37,7 +37,7 @@
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Sign In"/>
                                 <connections>
-                                    <segue destination="vXZ-lx-hvc" kind="show" id="Xcc-yL-7za"/>
+                                    <action selector="pressedSignIn:" destination="mG6-gC-cVp" eventType="touchUpInside" id="BdE-tn-ccC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emS-eO-kwW">
@@ -49,7 +49,7 @@
                                     <segue destination="x9z-Kz-w99" kind="show" id="7jA-G8-dNf"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0NO-vC-gkB">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0NO-vC-gkB">
                                 <rect key="frame" x="104" y="235" width="392" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -74,10 +74,15 @@
                             <constraint firstItem="emS-eO-kwW" firstAttribute="centerX" secondItem="J9V-ge-k0c" secondAttribute="centerX" id="zbw-fv-hO0"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="OUt-2b-QYe" id="ZaH-3m-F4h"/>
+                        <outlet property="usernameTextField" destination="0NO-vC-gkB" id="mLV-tm-KbZ"/>
+                        <segue destination="vXZ-lx-hvc" kind="show" identifier="SignInSegue" id="LO8-t9-eVR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KHa-lC-cot" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1492" y="336"/>
+            <point key="canvasLocation" x="-862" y="336"/>
         </scene>
         <!--Main Menu View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -191,6 +196,9 @@
                             <constraint firstItem="2jn-fc-f0a" firstAttribute="top" secondItem="IIL-Ng-dCG" secondAttribute="bottom" constant="12" id="zyV-9D-0dE"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="welcomeLabel" destination="GOy-Mv-UDW" id="yzG-p6-LVZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -942,11 +950,11 @@
                         <viewControllerLayoutGuide type="bottom" id="gHR-vq-iqF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="f5G-AQ-BNA">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="700"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N2a-Sj-d81">
-                                <rect key="frame" x="197" y="118" width="205" height="205"/>
+                                <rect key="frame" x="222" y="118" width="155" height="155"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="N2a-Sj-d81" secondAttribute="height" multiplier="1:1" id="VML-X7-7Xl"/>
@@ -974,7 +982,7 @@
                                 </variation>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(name)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WmC-aV-5fP">
-                                <rect key="frame" x="150" y="335" width="300" height="30"/>
+                                <rect key="frame" x="150" y="285" width="300" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -989,21 +997,21 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(email)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQs-tv-AmC">
-                                <rect key="frame" x="150" y="373" width="300" height="30"/>
+                                <rect key="frame" x="150" y="323" width="300" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(phone)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5lu-cz-MK3">
-                                <rect key="frame" x="150" y="411" width="300" height="30"/>
+                                <rect key="frame" x="150" y="361" width="300" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sr-TN-n6B">
-                                <rect key="frame" x="100" y="537" width="400" height="30"/>
+                                <rect key="frame" x="100" y="487" width="400" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Edit Profile">
@@ -1012,7 +1020,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MDZ-HO-4XK">
-                                <rect key="frame" x="100" y="495" width="400" height="30"/>
+                                <rect key="frame" x="100" y="445" width="400" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Order History">
@@ -1024,7 +1032,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VGZ-bz-GJ0">
-                                <rect key="frame" x="100" y="453" width="400" height="30"/>
+                                <rect key="frame" x="100" y="403" width="400" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Book Listings">
@@ -1235,9 +1243,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Xcc-yL-7za"/>
-        <segue reference="nJo-3r-gIF"/>
-        <segue reference="k99-n3-sAh"/>
+        <segue reference="5kI-VU-OUh"/>
+        <segue reference="LO8-t9-eVR"/>
         <segue reference="574-uB-4hh"/>
+        <segue reference="k99-n3-sAh"/>
     </inferredMetricsTieBreakers>
 </document>
