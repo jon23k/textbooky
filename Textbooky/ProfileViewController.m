@@ -10,6 +10,14 @@
 
 @interface ProfileViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextView *usernameLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
+
 @end
 
 @implementation ProfileViewController
@@ -24,6 +32,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.usernameLabel.text = [NSString stringWithFormat:@"%@", [[self currentUser] objectForKey:@"username"]];
+    self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", [[self currentUser] objectForKey:@"firstname"], [[self currentUser] objectForKey:@"lastname"]];
+    //self.emailLabel.text = [NSString stringWithFormat:@"%@", [[self currentUser] objectForKey:@"email"]];
+    self.phoneLabel.text = [NSString stringWithFormat:@"%@", [[self currentUser] objectForKey:@"phonenum"]];
+    
 }
 
 /*

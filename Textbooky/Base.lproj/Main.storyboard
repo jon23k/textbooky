@@ -45,9 +45,6 @@
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Sign Up"/>
-                                <connections>
-                                    <segue destination="x9z-Kz-w99" kind="show" id="7jA-G8-dNf"/>
-                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0NO-vC-gkB">
                                 <rect key="frame" x="104" y="235" width="392" height="30"/>
@@ -82,7 +79,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KHa-lC-cot" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-862" y="336"/>
+            <point key="canvasLocation" x="-1246" y="336"/>
         </scene>
         <!--Main Menu View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -115,7 +112,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="jRU-e1-QBd" kind="show" id="5kI-VU-OUh"/>
+                                    <action selector="pressedProfile:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="R9F-6m-uhb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIL-Ng-dCG">
@@ -134,7 +131,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="mG6-gC-cVp" kind="show" id="QbQ-5a-Zgf"/>
+                                    <action selector="pressedSignOut:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="KWE-Sx-34r"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WCS-ue-eKh">
@@ -198,6 +195,7 @@
                     </view>
                     <connections>
                         <outlet property="welcomeLabel" destination="GOy-Mv-UDW" id="yzG-p6-LVZ"/>
+                        <segue destination="jRU-e1-QBd" kind="show" identifier="ViewYourProfileSegue" id="XOl-9S-hTD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -301,7 +299,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YsH-vt-8sD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-358" y="1201"/>
+            <point key="canvasLocation" x="-630" y="1185"/>
         </scene>
         <!--Buy a Book-->
         <scene sceneID="g78-Za-yeg">
@@ -1124,6 +1122,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="emailLabel" destination="yQs-tv-AmC" id="mqJ-qT-shd"/>
+                        <outlet property="nameLabel" destination="WmC-aV-5fP" id="K72-y9-Syl"/>
+                        <outlet property="phoneLabel" destination="5lu-cz-MK3" id="q3w-0h-PBk"/>
+                        <outlet property="usernameLabel" destination="aop-Ud-ow3" id="E3R-If-fzb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xjc-EJ-Hlk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1223,28 +1227,10 @@
             </objects>
             <point key="canvasLocation" x="2487" y="-396"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="ZqP-cS-urD">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="x9z-Kz-w99" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zpn-cx-033">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="JUE-li-a64" kind="relationship" relationship="rootViewController" id="7hY-IY-PTD"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4qv-xN-Fxv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1068" y="1201"/>
-        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="5kI-VU-OUh"/>
-        <segue reference="LO8-t9-eVR"/>
+        <segue reference="guB-DC-2FT"/>
+        <segue reference="XOl-9S-hTD"/>
         <segue reference="574-uB-4hh"/>
         <segue reference="k99-n3-sAh"/>
     </inferredMetricsTieBreakers>

@@ -10,4 +10,8 @@
 
 @interface ProfileViewController : UIViewController
 
+- (void)setCurrentUser:(NSDictionary*)dict;
+
+@property (nonatomic, strong) NSDictionary *currentUser;
+
 @end
