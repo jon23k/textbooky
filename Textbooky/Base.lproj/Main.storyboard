@@ -145,7 +145,7 @@
                                     <segue destination="IeA-gE-eIE" kind="show" id="Mdf-GR-hgE"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e6c-W1-A09">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wtRxq_70.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="e6c-W1-A09">
                                 <rect key="frame" x="202" y="76" width="197" height="197"/>
                                 <animations/>
                                 <constraints>
@@ -1228,6 +1228,9 @@
             <point key="canvasLocation" x="2487" y="-396"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="wtRxq_70.jpg" width="512" height="512"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="guB-DC-2FT"/>
         <segue reference="XOl-9S-hTD"/>

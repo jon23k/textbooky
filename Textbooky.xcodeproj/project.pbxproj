@@ -11,6 +11,7 @@
 		332A44E21BE2CC840063C7C6 /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 332A44E11BE2CC840063C7C6 /* Annotation.m */; };
 		332A44E51BE32F660063C7C6 /* CreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 332A44E41BE32F660063C7C6 /* CreateAccountViewController.m */; };
 		3334507C1BEC27BF00BC2E01 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3334507B1BEC27BF00BC2E01 /* LoginViewController.m */; };
+		3338590E1BED5E2B006BEA7E /* wtRxq_70.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3338590D1BED5E2B006BEA7E /* wtRxq_70.jpg */; };
 		33468C061BE1854C00C97E98 /* TODO.txt in Resources */ = {isa = PBXBuildFile; fileRef = 33468C051BE1854C00C97E98 /* TODO.txt */; };
 		33BDA1381BCE08AE00B99D20 /* ListingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BDA1371BCE08AE00B99D20 /* ListingsTableViewController.m */; };
 		33BDA13B1BCE2C8F00B99D20 /* SellABookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BDA13A1BCE2C8F00B99D20 /* SellABookViewController.m */; };
@@ -48,6 +49,7 @@
 		332A44E41BE32F660063C7C6 /* CreateAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateAccountViewController.m; sourceTree = "<group>"; };
 		3334507A1BEC27BF00BC2E01 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		3334507B1BEC27BF00BC2E01 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		3338590D1BED5E2B006BEA7E /* wtRxq_70.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wtRxq_70.jpg; sourceTree = "<group>"; };
 		33468C051BE1854C00C97E98 /* TODO.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO.txt; sourceTree = "<group>"; };
 		33BDA1361BCE08AE00B99D20 /* ListingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListingsTableViewController.h; sourceTree = "<group>"; };
 		33BDA1371BCE08AE00B99D20 /* ListingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListingsTableViewController.m; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 		F0C2029A1BBC38C600753ABB /* Textbooky */ = {
 			isa = PBXGroup;
 			children = (
+				3338590D1BED5E2B006BEA7E /* wtRxq_70.jpg */,
 				F0C2029F1BBC38C600753ABB /* AppDelegate.h */,
 				F0C202A01BBC38C600753ABB /* AppDelegate.m */,
 				F0C202A81BBC38C600753ABB /* Main.storyboard */,
@@ -280,6 +283,7 @@
 				33468C061BE1854C00C97E98 /* TODO.txt in Resources */,
 				F0C202AA1BBC38C600753ABB /* Main.storyboard in Resources */,
 				F0C202AF1BBC38C600753ABB /* LaunchScreen.xib in Resources */,
+				3338590E1BED5E2B006BEA7E /* wtRxq_70.jpg in Resources */,
 				F0C202AC1BBC38C600753ABB /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
