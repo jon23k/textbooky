@@ -30,7 +30,7 @@
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:usersUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
+        //NSLog(@"Users JSON: %@", responseObject);
         
         bool successfulSignIn = NO;
         
@@ -69,6 +69,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.usernameTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+    self.usernameTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    
+    self.passwordTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+    self.passwordTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    self.passwordTextField.secureTextEntry = YES;
 }
 
 

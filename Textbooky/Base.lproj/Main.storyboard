@@ -1232,9 +1232,9 @@
         <image name="wtRxq_70.jpg" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="guB-DC-2FT"/>
-        <segue reference="XOl-9S-hTD"/>
         <segue reference="574-uB-4hh"/>
+        <segue reference="XOl-9S-hTD"/>
+        <segue reference="LO8-t9-eVR"/>
         <segue reference="k99-n3-sAh"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -27,28 +27,42 @@
 }
 
 - (IBAction)testAPICall:(id)sender {
-    //testing AFNetworking
-    NSString *listingsUrl = @"http://textbooky.csse.rose-hulman.edu:8000/listings/";
-    NSString *usersUrl = @"http://textbooky.csse.rose-hulman.edu:8000/users/";
-    NSString *photosUrl = @"http://textbooky.csse.rose-hulman.edu:8000/listingphotos/";
-    NSString *reviewsUrl = @"http://textbooky.csse.rose-hulman.edu:8000/reviews/";
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
+                                    initWithURL:[NSURL
+                                                 URLWithString:@"http://textbooky.csse.rose-hulman.edu:8000/users/"]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/JSON" forHTTPHeaderField:@"Content-type"];
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:listingsUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
-        
-        /*
-        NSLog(@"id value: %@", [responseObject objectForKey:@"id"]);
-        NSArray *keys = [responseObject allKeys];
-        NSLog(@"key 0: %@", keys[0]);
-        */
-        
-        self.listings = responseObject;
-        
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
+    /*
+    NSString *xmlString = @"<data><item>Item 1</item><item>Item 2</item></data>";
+    [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[xmlString length]] forHTTPHeaderField:@"Content-length"];
+    [request setHTTPBody:[xmlString dataUsingEncoding:NSUTF8StringEncoding]];
+    */
+    
+    NSArray *objects = @[ @"test1", @"pass1", @"8121234567", @"Test", @"Name", @"NA", @"here", @5];
+    NSArray *keys = @[ @"username", @"password", @"phonenum", @"firstname", @"lastname", @"photodir", @"location", @"transactioncount" ];
+    
+    NSDictionary *dataToPost = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
+    
+    NSError *error;
+    NSData *postData = [NSJSONSerialization dataWithJSONObject:dataToPost options:0 error:&error];
+    [request setHTTPBody:postData];
+    
+    /*
+    [[NSURLConnection alloc] 
+     initWithRequest:request 
+     delegate:self];
+     */
+    
+    NSURLSession *session = [[NSURLSession alloc] init];
+    [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (error != nil) {
+            NSLog([NSString stringWithFormat:@"%@", error]);
+        } else {
+            NSHTTPURLResponse *httpResponse = ((NSHTTPURLResponse *) response);
+            NSLog([NSString stringWithFormat:@"%@", httpResponse]);
+        }
+    }] resume];
     
 }
 
@@ -72,6 +86,7 @@
         NSLog(@"JSON: %@", responseObject);
         
         self.listings = responseObject;
+        
         [self.tableView reloadData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
