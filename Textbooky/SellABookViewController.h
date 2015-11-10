@@ -10,6 +10,8 @@
 
 @interface SellABookViewController : UIViewController
 
-@property IBOutlet UIScrollView *scrollView;
+- (void)setCurrentUser:(NSDictionary*)dict;
+
+@property (nonatomic, strong) NSDictionary *currentUser;
 
 @end

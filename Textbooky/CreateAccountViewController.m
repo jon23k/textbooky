@@ -88,6 +88,11 @@
     self.confirmPasswordTextField.autocorrectionType = UITextAutocorrectionTypeNo;
     self.confirmPasswordTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     self.confirmPasswordTextField.secureTextEntry = YES;
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
 }
 
 
@@ -137,6 +142,14 @@
                                }
                            }
      ];
+}
+
+-(void)dismissKeyboard {
+    for (UIView * txt in self.view.subviews){
+        if ([txt isKindOfClass:[UITextField class]] && [txt isFirstResponder]) {
+            [txt resignFirstResponder];
+        }
+    }
 }
 
 @end

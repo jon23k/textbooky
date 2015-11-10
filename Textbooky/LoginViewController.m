@@ -79,6 +79,11 @@
     self.passwordTextField.autocorrectionType = UITextAutocorrectionTypeNo;
     self.passwordTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     self.passwordTextField.secureTextEntry = YES;
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
 }
 
 
@@ -91,6 +96,16 @@
     if ([[segue identifier] isEqualToString:@"SignInSegue"]) {
         //pass in valid user account info
         [((MainMenuViewController *) [segue destinationViewController]) setCurrentUser:self.currentUser];
+    }
+}
+
+# pragma mark - private
+
+-(void)dismissKeyboard {
+    for (UIView * txt in self.view.subviews){
+        if ([txt isKindOfClass:[UITextField class]] && [txt isFirstResponder]) {
+            [txt resignFirstResponder];
+        }
     }
 }
 

@@ -330,7 +330,7 @@
             <objects>
                 <tableViewController id="6bU-aN-hSs" customClass="ListingsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="HeM-YE-Gu5">
-                        <rect key="frame" x="0.0" y="64" width="600" height="636"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -433,31 +433,25 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CQi-Jw-UIQ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="(rating of 1 - 4)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CQi-Jw-UIQ">
                                 <rect key="frame" x="216" y="253" width="364" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ewU-wP-77w">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="(ex. 43.00)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ewU-wP-77w">
                                 <rect key="frame" x="216" y="291" width="364" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ylZ-bh-kWJ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="(&quot;true&quot; or &quot;false&quot;)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ylZ-bh-kWJ">
                                 <rect key="frame" x="216" y="329" width="364" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gEu-fG-ncn">
-                                <rect key="frame" x="216" y="367" width="364" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Cs-S6-ePJ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="(ex. 2015-12-31)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Cs-S6-ePJ">
                                 <rect key="frame" x="216" y="405" width="364" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -540,7 +534,16 @@
                                 <state key="normal" title="Post Your Book Listing!">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pressedPostListing:" destination="Ahi-e7-MVb" eventType="touchUpInside" id="wdM-5r-G35"/>
+                                </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gEu-fG-ncn">
+                                <rect key="frame" x="216" y="367" width="364" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.56211450340000002" green="0.73505598409999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -657,11 +660,11 @@
                         <viewControllerLayoutGuide type="bottom" id="bdF-w7-P7n"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3VC-1o-GHy">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="700"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LLR-8k-Chg">
-                                <rect key="frame" x="0.0" y="656" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="g9u-IM-J5S"/>
                                     <barButtonItem title="Find Me" id="OFj-Ma-kV7">
@@ -672,7 +675,7 @@
                                 </items>
                             </toolbar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3wF-jT-zVW">
-                                <rect key="frame" x="0.0" y="64" width="600" height="592"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -994,11 +997,11 @@
                         <viewControllerLayoutGuide type="bottom" id="gHR-vq-iqF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="f5G-AQ-BNA">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="700"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N2a-Sj-d81">
-                                <rect key="frame" x="197" y="118" width="205" height="205"/>
+                                <rect key="frame" x="222" y="118" width="155" height="155"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="N2a-Sj-d81" secondAttribute="height" multiplier="1:1" id="VML-X7-7Xl"/>
@@ -1026,7 +1029,7 @@
                                 </variation>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(name)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WmC-aV-5fP">
-                                <rect key="frame" x="150" y="335" width="300" height="30"/>
+                                <rect key="frame" x="150" y="285" width="300" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1041,21 +1044,21 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(email)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQs-tv-AmC">
-                                <rect key="frame" x="150" y="373" width="300" height="30"/>
+                                <rect key="frame" x="150" y="323" width="300" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(phone)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5lu-cz-MK3">
-                                <rect key="frame" x="150" y="411" width="300" height="30"/>
+                                <rect key="frame" x="150" y="361" width="300" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sr-TN-n6B">
-                                <rect key="frame" x="100" y="537" width="400" height="30"/>
+                                <rect key="frame" x="100" y="487" width="400" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Edit Profile">
@@ -1064,7 +1067,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MDZ-HO-4XK">
-                                <rect key="frame" x="100" y="495" width="400" height="30"/>
+                                <rect key="frame" x="100" y="445" width="400" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Order History">
@@ -1076,7 +1079,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VGZ-bz-GJ0">
-                                <rect key="frame" x="100" y="453" width="400" height="30"/>
+                                <rect key="frame" x="100" y="403" width="400" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Book Listings">
@@ -1278,9 +1281,9 @@
         <image name="wtRxq_70.jpg" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gH0-Pg-cjQ"/>
-        <segue reference="LO8-t9-eVR"/>
-        <segue reference="nJo-3r-gIF"/>
         <segue reference="574-uB-4hh"/>
+        <segue reference="XOl-9S-hTD"/>
+        <segue reference="LO8-t9-eVR"/>
+        <segue reference="gH0-Pg-cjQ"/>
     </inferredMetricsTieBreakers>
 </document>
