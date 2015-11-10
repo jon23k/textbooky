@@ -92,7 +92,7 @@
     
     NSLog(@"creating dictionary arrays");
     
-    NSString *currentUserID = [NSString stringWithFormat:@"http://textbooky.csse.rose-hulman.edu:8000/users/%@", [self.currentUser objectForKey:@"userid"]];
+    NSString *currentUserID = [NSString stringWithFormat:@"http://textbooky.csse.rose-hulman.edu:8000/users/%@/", [self.currentUser objectForKey:@"userid"]];
     
     NSArray *objects = @[ self.ISBNTextField.text, self.titleTextField.text, self.editionTextField.text, self.authorTextField.text, @3, self.priceTextField.text, @false, self.commentsTextField.text, self.expirationTextField.text, @"2015-11-10", @"39.4824939", @"-87.3226889", currentUserID ];
     NSArray *keys = @[ @"isbn", @"title", @"edition", @"author", @"condition", @"price", @"negotiable", @"comments", @"expirationdate", @"postdate", @"latitude", @"longitude", @"userid" ];
