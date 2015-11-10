@@ -45,6 +45,9 @@
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="pressedSignUp:" destination="mG6-gC-cVp" eventType="touchUpInside" id="C4X-S3-v8n"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0NO-vC-gkB">
                                 <rect key="frame" x="104" y="235" width="392" height="30"/>
@@ -75,6 +78,7 @@
                         <outlet property="passwordTextField" destination="OUt-2b-QYe" id="ZaH-3m-F4h"/>
                         <outlet property="usernameTextField" destination="0NO-vC-gkB" id="mLV-tm-KbZ"/>
                         <segue destination="vXZ-lx-hvc" kind="show" identifier="SignInSegue" id="LO8-t9-eVR"/>
+                        <segue destination="JUE-li-a64" kind="show" identifier="SignUpSegue" id="1Cj-yf-ZCd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KHa-lC-cot" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -256,7 +260,17 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="vXZ-lx-hvc" kind="show" id="guB-DC-2FT"/>
+                                    <action selector="pressedSignUp:" destination="JUE-li-a64" eventType="touchUpInside" id="gOt-ZA-YOl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZT-Fy-lMu">
+                                <rect key="frame" x="195" y="449" width="210" height="30"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedBack:" destination="JUE-li-a64" eventType="touchUpInside" id="i4T-bk-DqC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -268,6 +282,8 @@
                             <constraint firstItem="cYB-fA-o8q" firstAttribute="top" secondItem="elQ-ym-iqs" secondAttribute="bottom" constant="12" id="3Tk-EG-gr1"/>
                             <constraint firstItem="uGB-1c-rwI" firstAttribute="width" secondItem="Mif-ng-UTc" secondAttribute="width" id="5j8-bC-abl"/>
                             <constraint firstItem="Mif-ng-UTc" firstAttribute="centerX" secondItem="PW3-gy-7yG" secondAttribute="centerX" id="6Xl-cN-4TR"/>
+                            <constraint firstItem="tZT-Fy-lMu" firstAttribute="width" secondItem="87h-jP-EFA" secondAttribute="width" id="6kh-5x-6w2"/>
+                            <constraint firstItem="tZT-Fy-lMu" firstAttribute="centerX" secondItem="PW3-gy-7yG" secondAttribute="centerX" id="7ZN-cc-7OJ"/>
                             <constraint firstItem="elQ-ym-iqs" firstAttribute="centerX" secondItem="PW3-gy-7yG" secondAttribute="centerX" id="BB0-RZ-zva"/>
                             <constraint firstItem="87h-jP-EFA" firstAttribute="top" secondItem="UQ2-rq-C7b" secondAttribute="bottom" constant="12" id="Ban-9O-1Ri"/>
                             <constraint firstItem="elQ-ym-iqs" firstAttribute="centerY" secondItem="PW3-gy-7yG" secondAttribute="centerY" id="D9H-Ca-dJ0"/>
@@ -276,6 +292,7 @@
                             <constraint firstItem="elQ-ym-iqs" firstAttribute="width" secondItem="Mif-ng-UTc" secondAttribute="width" id="OlM-40-KOh"/>
                             <constraint firstItem="uGB-1c-rwI" firstAttribute="centerX" secondItem="PW3-gy-7yG" secondAttribute="centerX" id="PkZ-6n-Eom"/>
                             <constraint firstItem="cYB-fA-o8q" firstAttribute="centerX" secondItem="PW3-gy-7yG" secondAttribute="centerX" id="R34-Uw-HOH"/>
+                            <constraint firstItem="tZT-Fy-lMu" firstAttribute="top" secondItem="87h-jP-EFA" secondAttribute="bottom" constant="12" id="Rgd-Wx-gSS"/>
                             <constraint firstItem="7yt-gq-mSh" firstAttribute="centerX" secondItem="PW3-gy-7yG" secondAttribute="centerX" id="U0j-Jv-vVj"/>
                             <constraint firstItem="87h-jP-EFA" firstAttribute="centerX" secondItem="PW3-gy-7yG" secondAttribute="centerX" id="US3-ni-9Xl"/>
                             <constraint firstItem="eHK-DS-eXO" firstAttribute="width" secondItem="Mif-ng-UTc" secondAttribute="width" id="ZJJ-CM-c9j"/>
@@ -284,22 +301,29 @@
                             <constraint firstItem="87h-jP-EFA" firstAttribute="width" secondItem="elQ-ym-iqs" secondAttribute="width" multiplier="0.7" id="f8u-b5-eb3"/>
                             <constraint firstItem="eHK-DS-eXO" firstAttribute="top" secondItem="7yt-gq-mSh" secondAttribute="bottom" constant="12" id="fbT-bX-zzK"/>
                             <constraint firstItem="7yt-gq-mSh" firstAttribute="top" secondItem="uGB-1c-rwI" secondAttribute="bottom" constant="12" id="iCj-85-vkC"/>
+                            <constraint firstItem="tZT-Fy-lMu" firstAttribute="height" secondItem="87h-jP-EFA" secondAttribute="height" id="kSF-eD-yYw"/>
                             <constraint firstItem="cYB-fA-o8q" firstAttribute="width" secondItem="Mif-ng-UTc" secondAttribute="width" id="oHF-zN-UOa"/>
                             <constraint firstItem="elQ-ym-iqs" firstAttribute="width" secondItem="PW3-gy-7yG" secondAttribute="width" multiplier="0.5" id="wig-Dt-EhZ"/>
                             <constraint firstItem="eHK-DS-eXO" firstAttribute="centerX" secondItem="PW3-gy-7yG" secondAttribute="centerX" id="yDc-dN-UpO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Create an Account" id="9Ao-ZE-c3o">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="oVC-Ky-AO0">
-                            <connections>
-                                <action selector="pressedBack:" destination="JUE-li-a64" id="cee-Qi-I3B"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="oVC-Ky-AO0"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="confirmPasswordTextField" destination="UQ2-rq-C7b" id="Pqr-ZG-fYc"/>
+                        <outlet property="emailTextField" destination="7yt-gq-mSh" id="KUN-fd-P3l"/>
+                        <outlet property="firstNameTextField" destination="Mif-ng-UTc" id="wHr-SG-E9U"/>
+                        <outlet property="lastNameTextField" destination="uGB-1c-rwI" id="fkX-lt-gFU"/>
+                        <outlet property="passwordTextField" destination="cYB-fA-o8q" id="rHI-vI-bIC"/>
+                        <outlet property="phoneNumberTextField" destination="eHK-DS-eXO" id="s4n-gW-run"/>
+                        <outlet property="usernameTextField" destination="elQ-ym-iqs" id="8sK-bZ-ROa"/>
+                        <segue destination="vXZ-lx-hvc" kind="show" identifier="CreateAccountSegue" id="aKP-JH-Zcv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YsH-vt-8sD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-630" y="1185"/>
+            <point key="canvasLocation" x="-627" y="1168"/>
         </scene>
         <!--Buy a Book-->
         <scene sceneID="g78-Za-yeg">
@@ -1245,9 +1269,9 @@
         <image name="wtRxq_70.jpg" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="k99-n3-sAh"/>
         <segue reference="574-uB-4hh"/>
         <segue reference="nJo-3r-gIF"/>
-        <segue reference="k99-n3-sAh"/>
         <segue reference="LO8-t9-eVR"/>
     </inferredMetricsTieBreakers>
 </document>

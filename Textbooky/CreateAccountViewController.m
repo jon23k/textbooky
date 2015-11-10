@@ -7,14 +7,67 @@
 //
 
 #import "CreateAccountViewController.h"
+#import "AFNetworking.h"
+#import "MainMenuViewController.h"
+
 
 @interface CreateAccountViewController ()
+
+@property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+@property (weak, nonatomic) IBOutlet UITextField *phoneNumberTextField;
+@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UITextField *confirmPasswordTextField;
+
+@property (nonatomic, strong) NSDictionary *createdUser;
 
 @end
 
 @implementation CreateAccountViewController
 
 # pragma mark IBActions
+
+- (IBAction)pressedSignUp:(id)sender {
+    if ([self.firstNameTextField.text isEqualToString:@""] ||
+        [self.lastNameTextField.text isEqualToString:@""] ||
+        [self.emailTextField.text isEqualToString:@""] ||
+        [self.phoneNumberTextField.text isEqualToString:@""] ||
+        [self.usernameTextField.text isEqualToString:@""] ||
+        [self.passwordTextField.text isEqualToString:@""] ||
+        [self.confirmPasswordTextField.text isEqualToString:@""]) {
+            NSLog(@"All fields required.");
+            return;
+    }
+    
+    if (self.passwordTextField.text != self.confirmPasswordTextField.text) {
+        NSLog(@"Passwords do not match.");
+        return;
+    }
+    
+    //verify username available
+    NSString *usersUrl = @"http://textbooky.csse.rose-hulman.edu:8000/users/";
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:usersUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        for (int i = 0; i <= [responseObject count] ; i++) {
+            if (i == [responseObject count]) {
+                [self postToUserAPI];
+                return;
+            }
+            
+            NSDictionary *dict = responseObject[i];
+            
+            if ([self.usernameTextField.text isEqualToString: [dict objectForKey:@"username"]]) {
+                NSLog(@"Username is unavailable.");
+                return;
+            }
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
 
 - (IBAction)pressedBack:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -24,22 +77,66 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.usernameTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+    self.usernameTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    
+    self.passwordTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+    self.passwordTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    self.passwordTextField.secureTextEntry = YES;
+    
+    self.confirmPasswordTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+    self.confirmPasswordTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    self.confirmPasswordTextField.secureTextEntry = YES;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"CreateAccountSegue"]) {
+        //pass in valid user account info
+        [((MainMenuViewController *) [segue destinationViewController]) setCurrentUser:self.createdUser];
+    }}
+
+# pragma mark - private
+
+- (void)postToUserAPI {
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
+                                    initWithURL:[NSURL
+                                                 URLWithString:@"http://textbooky.csse.rose-hulman.edu:8000/users/"]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/JSON" forHTTPHeaderField:@"Content-type"];
+    
+    NSArray *objects = @[ self.usernameTextField.text, self.passwordTextField.text, self.phoneNumberTextField.text, self.firstNameTextField.text, self.lastNameTextField.text, @"not applicable", @"not applicable", @0];
+    NSArray *keys = @[ @"username", @"password", @"phonenum", @"firstname", @"lastname", @"photodir", @"location", @"transactioncount" ];
+    
+    NSDictionary *dataToPost = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
+    self.createdUser = dataToPost;
+    
+    NSError *error;
+    NSData *postData = [NSJSONSerialization dataWithJSONObject:dataToPost options:0 error:&error];
+    [request setHTTPBody:postData];
+
+    [NSURLConnection sendAsynchronousRequest: request
+                                       queue: [NSOperationQueue mainQueue]
+                           completionHandler: ^(NSURLResponse *urlResponse, NSData *responseData, NSError *requestError) {
+                               // Check for Errors
+                               if (requestError || !responseData) {
+                                   // jump back to the main thread to update the UI
+                                   dispatch_async(dispatch_get_main_queue(), ^{
+                                       NSLog(@"Something went wrong...");
+                                   });
+                               } else {
+                                   // jump back to the main thread to update the UI
+                                   dispatch_async(dispatch_get_main_queue(), ^{
+                                       NSLog(@"All going well...");
+                                       [self performSegueWithIdentifier:@"CreateAccountSegue" sender:self];
+                                   });
+                               }
+                           }
+     ];
 }
-*/
 
 @end

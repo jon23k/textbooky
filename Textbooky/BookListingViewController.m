@@ -27,7 +27,7 @@
 }
 
 - (void)viewDidLayoutSubviews {
-    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 700);
+    //self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 700);
 }
 
 /*

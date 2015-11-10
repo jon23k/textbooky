@@ -23,6 +23,9 @@
 @implementation LoginViewController
 
 #pragma mark - IBActions
+- (IBAction)pressedSignUp:(id)sender {
+    [self performSegueWithIdentifier:@"SignUpSegue" sender:self];
+}
 
 - (IBAction)pressedSignIn:(id)sender {
     //verify usersname/password

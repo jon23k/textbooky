@@ -33,13 +33,7 @@
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/JSON" forHTTPHeaderField:@"Content-type"];
     
-    /*
-    NSString *xmlString = @"<data><item>Item 1</item><item>Item 2</item></data>";
-    [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[xmlString length]] forHTTPHeaderField:@"Content-length"];
-    [request setHTTPBody:[xmlString dataUsingEncoding:NSUTF8StringEncoding]];
-    */
-    
-    NSArray *objects = @[ @"test1", @"pass1", @"8121234567", @"Test", @"Name", @"NA", @"here", @5];
+    NSArray *objects = @[ @"test2", @"pass2", @"8121234567", @"Test", @"Name", @"NA", @"here", @5];
     NSArray *keys = @[ @"username", @"password", @"phonenum", @"firstname", @"lastname", @"photodir", @"location", @"transactioncount" ];
     
     NSDictionary *dataToPost = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
@@ -48,12 +42,33 @@
     NSData *postData = [NSJSONSerialization dataWithJSONObject:dataToPost options:0 error:&error];
     [request setHTTPBody:postData];
     
+    //Deprecated in iOS 9, but still works...
     /*
     [[NSURLConnection alloc] 
      initWithRequest:request 
      delegate:self];
      */
     
+    [NSURLConnection sendAsynchronousRequest: request
+                                       queue: [NSOperationQueue mainQueue]
+                           completionHandler: ^(NSURLResponse *urlResponse, NSData *responseData, NSError *requestError) {
+                               // Check for Errors
+                               if (requestError || !responseData) {
+                                   // jump back to the main thread to update the UI
+                                   dispatch_async(dispatch_get_main_queue(), ^{
+                                       NSLog(@"Something went wrong...");
+                                   });
+                               } else {
+                                   // jump back to the main thread to update the UI
+                                   dispatch_async(dispatch_get_main_queue(), ^{
+                                       NSLog(@"All going well...");
+                                   });
+                               }
+                           }
+     ];
+
+    
+    /*
     NSURLSession *session = [[NSURLSession alloc] init];
     [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error != nil) {
@@ -63,7 +78,7 @@
             NSLog([NSString stringWithFormat:@"%@", httpResponse]);
         }
     }] resume];
-    
+    */
 }
 
 #pragma mark - UITableViewController subclass
