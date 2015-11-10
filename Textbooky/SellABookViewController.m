@@ -31,7 +31,7 @@
 #pragma mark - IBActions
 
 - (IBAction)pressedPostListing:(id)sender {
-    /*
+    
     if ([self.ISBNTextField.text isEqualToString:@""] ||
         [self.titleTextField.text isEqualToString:@""] ||
         [self.editionTextField.text isEqualToString:@""] ||
@@ -45,9 +45,11 @@
         return;
     }
     
+    NSLog(@"calling postToListingsAPI");
+    
     [self postToListingsAPI];
-     */
-    [self performSegueWithIdentifier:@"PostListingSegue" sender:self];
+    
+    //[self performSegueWithIdentifier:@"PostListingSegue" sender:self];
 }
 
 - (IBAction)pressedBack:(id)sender {
@@ -88,15 +90,23 @@
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/JSON" forHTTPHeaderField:@"Content-type"];
     
-    NSArray *objects = @[ self.ISBNTextField.text, self.titleTextField.text, self.editionTextField.text, self.authorTextField.text, self.conditionTextField.text, self.priceTextField.text, self.negotiableTextField.text, self.commentsTextField.text, self.expirationTextField.text, @"2015-11-10", @"39.4824939", @"-87.3226889", [self.currentUser objectForKey:@"userid"] ];
+    NSLog(@"creating dictionary arrays");
+    
+    NSString *currentUserID = [NSString stringWithFormat:@"http://textbooky.csse.rose-hulman.edu:8000/users/%@", [self.currentUser objectForKey:@"userid"]];
+    
+    NSArray *objects = @[ self.ISBNTextField.text, self.titleTextField.text, self.editionTextField.text, self.authorTextField.text, @3, self.priceTextField.text, @false, self.commentsTextField.text, self.expirationTextField.text, @"2015-11-10", @"39.4824939", @"-87.3226889", currentUserID ];
     NSArray *keys = @[ @"isbn", @"title", @"edition", @"author", @"condition", @"price", @"negotiable", @"comments", @"expirationdate", @"postdate", @"latitude", @"longitude", @"userid" ];
     
     NSDictionary *dataToPost = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     self.createdPost = dataToPost;
     
+    NSLog(@"Serializing JSON");
+    
     NSError *error;
     NSData *postData = [NSJSONSerialization dataWithJSONObject:dataToPost options:0 error:&error];
     [request setHTTPBody:postData];
+    
+    NSLog(@"calling deprecated functions");
     
     [NSURLConnection sendAsynchronousRequest: request
                                        queue: [NSOperationQueue mainQueue]
@@ -110,7 +120,7 @@
                                } else {
                                    // jump back to the main thread to update the UI
                                    dispatch_async(dispatch_get_main_queue(), ^{
-                                       NSLog(@"All going well...");
+                                       NSLog(@"All going well posting listing...");
                                        [self performSegueWithIdentifier:@"PostListingSegue" sender:self];
                                    });
                                }

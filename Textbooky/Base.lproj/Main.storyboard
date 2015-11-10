@@ -146,7 +146,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="IeA-gE-eIE" kind="show" id="Mdf-GR-hgE"/>
+                                    <action selector="pressedSellABook:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ewW-zW-vqV"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wtRxq_70.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="e6c-W1-A09">
@@ -200,6 +200,7 @@
                     <connections>
                         <outlet property="welcomeLabel" destination="GOy-Mv-UDW" id="yzG-p6-LVZ"/>
                         <segue destination="jRU-e1-QBd" kind="show" identifier="ViewYourProfileSegue" id="XOl-9S-hTD"/>
+                        <segue destination="IeA-gE-eIE" kind="show" identifier="SellBookSegue" id="DXm-fD-NHq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -1284,6 +1285,6 @@
         <segue reference="574-uB-4hh"/>
         <segue reference="XOl-9S-hTD"/>
         <segue reference="LO8-t9-eVR"/>
-        <segue reference="gH0-Pg-cjQ"/>
+        <segue reference="k99-n3-sAh"/>
     </inferredMetricsTieBreakers>
 </document>

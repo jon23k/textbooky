@@ -8,6 +8,7 @@
 
 #import "MainMenuViewController.h"
 #import "ProfileViewController.h"
+#import "SellABookViewController.h"
 
 @interface MainMenuViewController ()
 
@@ -21,6 +22,9 @@
 
 - (IBAction)pressedSignOut:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (IBAction)pressedSellABook:(id)sender {
+    [self performSegueWithIdentifier:@"SellBookSegue" sender:self];
 }
 
 - (IBAction)pressedProfile:(id)sender {
@@ -44,6 +48,11 @@
     if ([[segue identifier] isEqualToString:@"ViewYourProfileSegue"]) {
         //pass in valid user account info
         [((ProfileViewController *)[((UINavigationController *) [segue destinationViewController]) viewControllers][0]) setCurrentUser:self.currentUser];
+    }
+    
+    if ([[segue identifier] isEqualToString:@"SellBookSegue"]) {
+        //pass in valid user account info
+        [((SellABookViewController *)[((UINavigationController *) [segue destinationViewController]) viewControllers][0]) setCurrentUser:self.currentUser];
     }
 }
 

@@ -114,7 +114,7 @@
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/JSON" forHTTPHeaderField:@"Content-type"];
     
-    NSArray *objects = @[ self.usernameTextField.text, self.passwordTextField.text, self.phoneNumberTextField.text, self.firstNameTextField.text, self.lastNameTextField.text, @"not applicable", @"not applicable", @0];
+    NSArray *objects = @[ self.usernameTextField.text, self.passwordTextField.text, self.phoneNumberTextField.text, self.firstNameTextField.text, self.lastNameTextField.text, @"not applicable", @"not applicable", @0 ];
     NSArray *keys = @[ @"username", @"password", @"phonenum", @"firstname", @"lastname", @"photodir", @"location", @"transactioncount" ];
     
     NSDictionary *dataToPost = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
