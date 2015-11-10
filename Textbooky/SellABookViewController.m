@@ -10,6 +10,15 @@
 
 @interface SellABookViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *ISBNTextField;
+@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
+@property (weak, nonatomic) IBOutlet UITextField *editionTextField;
+@property (weak, nonatomic) IBOutlet UITextField *authorTextField;
+@property (weak, nonatomic) IBOutlet UITextField *conditionTextField;
+@property (weak, nonatomic) IBOutlet UITextField *priceTextField;
+@property (weak, nonatomic) IBOutlet UITextField *negotiableTextField;
+@property (weak, nonatomic) IBOutlet UITextField *commentsTextField;
+@property (weak, nonatomic) IBOutlet UITextField *expirationTextField;
 @end
 
 @implementation SellABookViewController

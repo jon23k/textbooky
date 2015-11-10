@@ -330,7 +330,7 @@
             <objects>
                 <tableViewController id="6bU-aN-hSs" customClass="ListingsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="HeM-YE-Gu5">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="636"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -540,9 +540,6 @@
                                 <state key="normal" title="Post Your Book Listing!">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="w7w-6J-GfE" kind="show" id="er9-Sw-P9Z"/>
-                                </connections>
                             </button>
                         </subviews>
                         <animations/>
@@ -634,6 +631,18 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="ISBNTextField" destination="PxT-HD-TiA" id="WJS-W1-coG"/>
+                        <outlet property="authorTextField" destination="ckF-rQ-nJa" id="PRG-xw-0wL"/>
+                        <outlet property="commentsTextField" destination="gEu-fG-ncn" id="S6n-PI-reU"/>
+                        <outlet property="conditionTextField" destination="CQi-Jw-UIQ" id="m3r-xc-YDC"/>
+                        <outlet property="editionTextField" destination="wbN-1Q-jMO" id="qNx-B8-Mb1"/>
+                        <outlet property="expirationTextField" destination="8Cs-S6-ePJ" id="tHA-58-OIX"/>
+                        <outlet property="negotiableTextField" destination="ylZ-bh-kWJ" id="nuW-cj-Kap"/>
+                        <outlet property="priceTextField" destination="ewU-wP-77w" id="u5L-ku-eDd"/>
+                        <outlet property="titleTextField" destination="0wc-bA-cVu" id="sHp-Qe-p2G"/>
+                        <segue destination="w7w-6J-GfE" kind="show" identifier="PostListingSegue" id="gH0-Pg-cjQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DaP-u3-db5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -648,11 +657,11 @@
                         <viewControllerLayoutGuide type="bottom" id="bdF-w7-P7n"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3VC-1o-GHy">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="700"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LLR-8k-Chg">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="656" width="600" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="g9u-IM-J5S"/>
                                     <barButtonItem title="Find Me" id="OFj-Ma-kV7">
@@ -663,7 +672,7 @@
                                 </items>
                             </toolbar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3wF-jT-zVW">
-                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="592"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1269,9 +1278,9 @@
         <image name="wtRxq_70.jpg" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="k99-n3-sAh"/>
-        <segue reference="574-uB-4hh"/>
-        <segue reference="nJo-3r-gIF"/>
+        <segue reference="gH0-Pg-cjQ"/>
         <segue reference="LO8-t9-eVR"/>
+        <segue reference="nJo-3r-gIF"/>
+        <segue reference="574-uB-4hh"/>
     </inferredMetricsTieBreakers>
 </document>
