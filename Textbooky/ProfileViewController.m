@@ -10,7 +10,7 @@
 
 @interface ProfileViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextView *usernameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
