@@ -1,5 +1,5 @@
 List of things that still need to be implemented/fixed
 
-Create ViewController subclass for sign in page
-Get API stuff/data management working w/ barts API
-Map/location services
+integrate map view with coordinates in database
+use user location to get nearby listings
+from the profile view, the Book Listings button should find all listings by that specific user
