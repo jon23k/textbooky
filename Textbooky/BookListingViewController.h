@@ -10,8 +10,8 @@
 
 @interface BookListingViewController : UIViewController
 
-@property IBOutlet UIScrollView *scrollView;
+- (void)setCurrentListing:(NSDictionary*)dict;
 
-@property (nonatomic, weak) NSDictionary *listingObj;
+@property (nonatomic, strong) NSDictionary *currentListing;
 
 @end

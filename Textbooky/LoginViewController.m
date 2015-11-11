@@ -28,6 +28,19 @@
 }
 
 - (IBAction)pressedSignIn:(id)sender {
+    if ([self.usernameTextField.text isEqualToString:@""] || [self.passwordTextField.text isEqualToString:@""]) {
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Invalid Login Credentials"
+                                                                       message:@"Please enter a valid username and password combination"
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {}];
+        
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
+        return;
+    }
+    
     //verify usersname/password
     NSString *usersUrl = @"http://textbooky.csse.rose-hulman.edu:8000/users/";
     

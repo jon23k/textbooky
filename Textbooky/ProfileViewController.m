@@ -14,8 +14,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
 
 @end
@@ -35,7 +33,6 @@
     
     self.usernameLabel.text = [NSString stringWithFormat:@"%@", [[self currentUser] objectForKey:@"username"]];
     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", [[self currentUser] objectForKey:@"firstname"], [[self currentUser] objectForKey:@"lastname"]];
-    //self.emailLabel.text = [NSString stringWithFormat:@"%@", [[self currentUser] objectForKey:@"email"]];
     self.phoneLabel.text = [NSString stringWithFormat:@"%@", [[self currentUser] objectForKey:@"phonenum"]];
     
 }

@@ -8,7 +8,7 @@
 
 #import "SellABookViewController.h"
 #import "AFNetworking.h"
-#import "BookListingViewController.h"
+#import "ListingsTableViewController.h"
 
 @interface SellABookViewController ()
 
@@ -18,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *authorTextField;
 @property (weak, nonatomic) IBOutlet UITextField *conditionTextField;
 @property (weak, nonatomic) IBOutlet UITextField *priceTextField;
-@property (weak, nonatomic) IBOutlet UITextField *negotiableTextField;
+@property (weak, nonatomic) IBOutlet UISwitch *negotiableSwitch;
 @property (weak, nonatomic) IBOutlet UITextField *commentsTextField;
 @property (weak, nonatomic) IBOutlet UITextField *expirationTextField;
 
@@ -38,7 +38,6 @@
         [self.authorTextField.text isEqualToString:@""] ||
         [self.conditionTextField.text isEqualToString:@""] ||
         [self.priceTextField.text isEqualToString:@""] ||
-        [self.negotiableTextField.text isEqualToString:@""] ||
         [self.commentsTextField.text isEqualToString:@""] ||
         [self.expirationTextField.text isEqualToString:@""]) {
         NSLog(@"All fields required.");
@@ -76,8 +75,6 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
 
 
@@ -94,7 +91,8 @@
     
     NSString *currentUserID = [NSString stringWithFormat:@"http://textbooky.csse.rose-hulman.edu:8000/users/%@/", [self.currentUser objectForKey:@"userid"]];
     
-    NSArray *objects = @[ self.ISBNTextField.text, self.titleTextField.text, self.editionTextField.text, self.authorTextField.text, @3, self.priceTextField.text, @false, self.commentsTextField.text, self.expirationTextField.text, @"2015-11-10", @"39.4824939", @"-87.3226889", currentUserID ];
+    //need to figure out how to parse boolean/integers
+    NSArray *objects = @[ self.ISBNTextField.text, self.titleTextField.text, self.editionTextField.text, self.authorTextField.text, [NSNumber numberWithInt:[self.conditionTextField.text intValue]], self.priceTextField.text, [NSNumber numberWithBool:[self.negotiableSwitch isOn]], self.commentsTextField.text, self.expirationTextField.text, @"2015-11-10", @"39.4824939", @"-87.3226889", currentUserID ];
     NSArray *keys = @[ @"isbn", @"title", @"edition", @"author", @"condition", @"price", @"negotiable", @"comments", @"expirationdate", @"postdate", @"latitude", @"longitude", @"userid" ];
     
     NSDictionary *dataToPost = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];

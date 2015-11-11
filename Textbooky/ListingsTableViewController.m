@@ -8,6 +8,7 @@
 
 #import "ListingsTableViewController.h"
 #import "AFNetworking.h"
+#import "BookListingViewController.h"
 
 @interface ListingsTableViewController ()
 
@@ -15,6 +16,8 @@
 @property (nonatomic, strong) NSArray *dummyBooks;
 @property (nonatomic, strong) NSArray *dummyPrices;
 @property (nonatomic, strong) NSArray *listings;
+
+@property (nonatomic, strong) NSDictionary *selectedListing;
 
 @end
 
@@ -110,6 +113,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.selectedListing = self.listings[indexPath.row];
     [self performSegueWithIdentifier:@"selectedBookListingSegue" sender:self];
 }
 
@@ -144,7 +148,7 @@
         cell.detailTextLabel.text = @"PRICE IS NULL";
     }
     else {
-        cell.detailTextLabel.text = [currentListing objectForKey:@"price"];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"$%.02f", [[currentListing objectForKey:@"price"] doubleValue]];
     }
     
     
@@ -187,14 +191,14 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"selectedBookListingSegue"]) {
+        [((BookListingViewController *)[((UINavigationController *) [segue destinationViewController]) viewControllers][0]) setCurrentListing:self.selectedListing];
+    }
 }
-*/
 
 @end
