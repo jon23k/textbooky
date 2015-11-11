@@ -19,7 +19,6 @@
 		33BDA13B1BCE2C8F00B99D20 /* SellABookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BDA13A1BCE2C8F00B99D20 /* SellABookViewController.m */; };
 		33BDA13E1BCE456100B99D20 /* BookListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BDA13D1BCE456100B99D20 /* BookListingViewController.m */; };
 		33BDA1411BCECBA100B99D20 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BDA1401BCECBA100B99D20 /* ProfileViewController.m */; };
-		33BDA1441BCECC6F00B99D20 /* ListingObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BDA1431BCECC6F00B99D20 /* ListingObj.m */; };
 		B66D98E934188782BC5488DD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5FDA5C1F0B6D3A3BE03F624 /* libPods.a */; };
 		F0C2029E1BBC38C600753ABB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C2029D1BBC38C600753ABB /* main.m */; };
 		F0C202A11BBC38C600753ABB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C202A01BBC38C600753ABB /* AppDelegate.m */; };
@@ -63,8 +62,6 @@
 		33BDA13D1BCE456100B99D20 /* BookListingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookListingViewController.m; sourceTree = "<group>"; };
 		33BDA13F1BCECBA100B99D20 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		33BDA1401BCECBA100B99D20 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
-		33BDA1421BCECC6F00B99D20 /* ListingObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListingObj.h; sourceTree = "<group>"; };
-		33BDA1431BCECC6F00B99D20 /* ListingObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListingObj.m; sourceTree = "<group>"; };
 		C413185069F0C4F7DA809328 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E5FDA5C1F0B6D3A3BE03F624 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0C202981BBC38C600753ABB /* Textbooky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Textbooky.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,8 +145,6 @@
 				F0C2029F1BBC38C600753ABB /* AppDelegate.h */,
 				F0C202A01BBC38C600753ABB /* AppDelegate.m */,
 				F0C202A81BBC38C600753ABB /* Main.storyboard */,
-				33BDA1421BCECC6F00B99D20 /* ListingObj.h */,
-				33BDA1431BCECC6F00B99D20 /* ListingObj.m */,
 				332A44E01BE2CC840063C7C6 /* Annotation.h */,
 				332A44E11BE2CC840063C7C6 /* Annotation.m */,
 				33468C051BE1854C00C97E98 /* TODO.txt */,
@@ -369,7 +364,6 @@
 				33BDA13E1BCE456100B99D20 /* BookListingViewController.m in Sources */,
 				332A44E21BE2CC840063C7C6 /* Annotation.m in Sources */,
 				332A44E51BE32F660063C7C6 /* CreateAccountViewController.m in Sources */,
-				33BDA1441BCECC6F00B99D20 /* ListingObj.m in Sources */,
 				F0C202A71BBC38C600753ABB /* MainMenuViewController.m in Sources */,
 				F0C2029E1BBC38C600753ABB /* main.m in Sources */,
 			);

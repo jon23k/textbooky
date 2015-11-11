@@ -12,9 +12,6 @@
 
 @interface ListingsTableViewController ()
 
-//dummy data
-@property (nonatomic, strong) NSArray *dummyBooks;
-@property (nonatomic, strong) NSArray *dummyPrices;
 @property (nonatomic, strong) NSArray *listings;
 
 @property (nonatomic, strong) NSDictionary *selectedListing;
@@ -89,11 +86,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //dummy data
-    self.dummyBooks = @[ @"Fund. of Calculus, 12th Ed.", @"Greek Literature, 4th Ed.", @"EoPL, 3rd Ed." ];
-    self.dummyPrices = @[ @"$78.00", @"$45.00", @"$52.00" ];
-    
-    //testing AFNetworking
     NSString *listingsUrl = @"http://textbooky.csse.rose-hulman.edu:8000/listings/";
     NSString *usersUrl = @"http://textbooky.csse.rose-hulman.edu:8000/users/";
     NSString *photosUrl = @"http://textbooky.csse.rose-hulman.edu:8000/listingphotos/";
