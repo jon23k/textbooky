@@ -9,12 +9,15 @@
 #import "ListingsTableViewController.h"
 #import "AFNetworking.h"
 #import "BookListingViewController.h"
+#import "ListingsMapViewController.h"
 
 @interface ListingsTableViewController ()
 
 @property (nonatomic, strong) NSArray *listings;
 
 @property (nonatomic, strong) NSDictionary *selectedListing;
+
+@property (nonatomic, strong) UIRefreshControl *refresher;
 
 @end
 
@@ -25,15 +28,18 @@
 - (IBAction)pressedBack:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+- (IBAction)pressedMap:(id)sender {
+    [self performSegueWithIdentifier:@"MapSegue" sender:self];
+}
 
 - (IBAction)testAPICall:(id)sender {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
                                     initWithURL:[NSURL
-                                                 URLWithString:@"http://textbooky.csse.rose-hulman.edu:8000/users/"]];
-    [request setHTTPMethod:@"POST"];
+                                                 URLWithString:@"http://textbooky.csse.rose-hulman.edu:8000/users/1/"]];
+    [request setHTTPMethod:@"PUT"];
     [request setValue:@"application/JSON" forHTTPHeaderField:@"Content-type"];
     
-    NSArray *objects = @[ @"test2", @"pass2", @"8121234567", @"Test", @"Name", @"NA", @"here", @5];
+    NSArray *objects = @[ @"miskowbs", @"pass123", @"8129876543", @"Bart", @"Miskowiec", @"not applicable", @"not applicable", @0 ];
     NSArray *keys = @[ @"username", @"password", @"phonenum", @"firstname", @"lastname", @"photodir", @"location", @"transactioncount" ];
     
     NSDictionary *dataToPost = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
@@ -41,13 +47,6 @@
     NSError *error;
     NSData *postData = [NSJSONSerialization dataWithJSONObject:dataToPost options:0 error:&error];
     [request setHTTPBody:postData];
-    
-    //Deprecated in iOS 9, but still works...
-    /*
-    [[NSURLConnection alloc] 
-     initWithRequest:request 
-     delegate:self];
-     */
     
     [NSURLConnection sendAsynchronousRequest: request
                                        queue: [NSOperationQueue mainQueue]
@@ -66,19 +65,6 @@
                                }
                            }
      ];
-
-    
-    /*
-    NSURLSession *session = [[NSURLSession alloc] init];
-    [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        if (error != nil) {
-            NSLog([NSString stringWithFormat:@"%@", error]);
-        } else {
-            NSHTTPURLResponse *httpResponse = ((NSHTTPURLResponse *) response);
-            NSLog([NSString stringWithFormat:@"%@", httpResponse]);
-        }
-    }] resume];
-    */
 }
 
 #pragma mark - UITableViewController subclass
@@ -86,22 +72,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSString *listingsUrl = @"http://textbooky.csse.rose-hulman.edu:8000/listings/";
-    NSString *usersUrl = @"http://textbooky.csse.rose-hulman.edu:8000/users/";
-    NSString *photosUrl = @"http://textbooky.csse.rose-hulman.edu:8000/listingphotos/";
-    NSString *reviewsUrl = @"http://textbooky.csse.rose-hulman.edu:8000/reviews/";
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:listingsUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
-        
-        self.listings = responseObject;
-        
-        [self.tableView reloadData];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
+    self.refresher = [[UIRefreshControl alloc]init];
+    [self.tableView addSubview:self.refresher];
+    [self.refresher addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
+    
+    [self refreshData];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -149,25 +126,61 @@
     return cell;
 }
 
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    NSDictionary *currentListing = [self.listings objectAtIndex:indexPath.row];
+    
+    if ([[currentListing objectForKey:@"userid"] isEqualToString:[NSString stringWithFormat:@"http://textbooky.csse.rose-hulman.edu:8000/users/%@/", [self.currentUser objectForKey:@"userid"]]]) {
+        return YES;
+    } else {
+        return NO;
+    }
+    
 }
-*/
 
-/*
+
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        NSDictionary *currentListing = [self.listings objectAtIndex:indexPath.row];
+        
+        //delete row in DB
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
+                                        initWithURL:[NSURL
+                                                     URLWithString: [NSString stringWithFormat:@"http://textbooky.csse.rose-hulman.edu:8000/listings/%@/", [currentListing objectForKey:@"listingid"]]]];
+        [request setHTTPMethod:@"DELETE"];
+        [request setValue:@"application/JSON" forHTTPHeaderField:@"Content-type"];
+        
+        [NSURLConnection sendAsynchronousRequest: request
+                                           queue: [NSOperationQueue mainQueue]
+                               completionHandler: ^(NSURLResponse *urlResponse, NSData *responseData, NSError *requestError) {
+                                   // Check for Errors
+                                   if (requestError || !responseData) {
+                                       // jump back to the main thread to update the UI
+                                       dispatch_async(dispatch_get_main_queue(), ^{
+                                           NSLog(@"Something went wrong...");
+                                           [self refreshData];
+                                       });
+                                   } else {
+                                       // jump back to the main thread to update the UI
+                                       dispatch_async(dispatch_get_main_queue(), ^{
+                                           NSLog(@"All going well...");
+                                           [self refreshData];
+                                       });
+                                   }
+                               }
+         ];
+        
+        //delete row in table
+        //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -191,6 +204,40 @@
     if ([[segue identifier] isEqualToString:@"selectedBookListingSegue"]) {
         [((BookListingViewController *)[((UINavigationController *) [segue destinationViewController]) viewControllers][0]) setCurrentListing:self.selectedListing];
     }
+    
+    if ([[segue identifier] isEqualToString:@"MapSegue"]) {
+        [((ListingsMapViewController *)[((UINavigationController *) [segue destinationViewController]) viewControllers][0]) setListings:self.listings];
+    }
+}
+
+#pragma mark - private
+
+- (void)refreshTable {
+    NSString *listingsUrl = @"http://textbooky.csse.rose-hulman.edu:8000/listings/";
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:listingsUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.listings = responseObject;
+        
+        [self.refresher endRefreshing];
+        [self.tableView reloadData];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+
+-(void)refreshData {
+    NSString *listingsUrl = @"http://textbooky.csse.rose-hulman.edu:8000/listings/";
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:listingsUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.listings = responseObject;
+        
+        [self.tableView reloadData];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 @end

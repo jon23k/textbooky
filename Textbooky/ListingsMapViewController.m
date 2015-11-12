@@ -54,6 +54,16 @@
     [self.mapView addAnnotation:annotation2];
 }
 
+- (void)loadListingsData {
+    for (int i = 0; i < [self.listings count] ; i++) {
+        NSDictionary *currentListing = self.listings[i];
+        
+        CLLocationCoordinate2D coords = CLLocationCoordinate2DMake([[currentListing objectForKey:@"latitude"] doubleValue], [[currentListing objectForKey:@"longitude"] doubleValue]);
+        Annotation *annotation = [[Annotation alloc] initWithLocation:(coords) Title:[currentListing objectForKey:@"title"] andSubtitle:[NSString stringWithFormat:@"$%.02f", [[currentListing objectForKey:@"price"] doubleValue]]];
+        [self.mapView addAnnotation:annotation];
+    }
+}
+
 # pragma mark - UIViewController subclass
 
 - (void)viewDidLoad {
@@ -76,7 +86,7 @@
     //Start updating user location
     [self.locationManager startUpdatingLocation];
 
-    [self loadTestData];
+    [self loadListingsData];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;

@@ -9,6 +9,7 @@
 #import "MainMenuViewController.h"
 #import "ProfileViewController.h"
 #import "SellABookViewController.h"
+#import "ListingsTableViewController.h"
 
 @interface MainMenuViewController ()
 
@@ -25,6 +26,9 @@
 }
 - (IBAction)pressedSellABook:(id)sender {
     [self performSegueWithIdentifier:@"SellBookSegue" sender:self];
+}
+- (IBAction)pressedBuyABook:(id)sender {
+    [self performSegueWithIdentifier:@"BuyABookSegue" sender:self];
 }
 
 - (IBAction)pressedProfile:(id)sender {
@@ -53,6 +57,11 @@
     if ([[segue identifier] isEqualToString:@"SellBookSegue"]) {
         //pass in valid user account info
         [((SellABookViewController *)[((UINavigationController *) [segue destinationViewController]) viewControllers][0]) setCurrentUser:self.currentUser];
+    }
+    
+    if ([[segue identifier] isEqualToString:@"BuyABookSegue"]) {
+        //pass in valid user account info
+        [((ListingsTableViewController *)[((UINavigationController *) [segue destinationViewController]) viewControllers][0]) setCurrentUser:self.currentUser];
     }
 }
 

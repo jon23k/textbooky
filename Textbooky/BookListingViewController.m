@@ -7,6 +7,8 @@
 //
 
 #import "BookListingViewController.h"
+#import "ProfileViewController.h"
+#import "AFNetworking.h"
 
 @interface BookListingViewController ()
 
@@ -22,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *sellerButton;
 @property (weak, nonatomic) IBOutlet UILabel *phoneNumberLabel;
 
+@property (nonatomic, strong) NSDictionary *listingSeller;
+
 @end
 
 @implementation BookListingViewController
@@ -32,11 +36,42 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (IBAction)pressedSellerName:(id)sender {
+    [self performSegueWithIdentifier:@"SellerProfileSegue" sender:self];
+}
+
 #pragma mark - UITableViewController subclass
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //get user info
+    NSString *usersUrl = [self.currentListing objectForKey:@"userid"];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:usersUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.listingSeller = responseObject;
+        [self updateLabels];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+
+}
+
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"SellerProfileSegue"]) {
+        [((ProfileViewController *)[((UINavigationController *) [segue destinationViewController]) viewControllers][0]) setCurrentUser:self.listingSeller];
+    }
+}
+
+
+#pragma mark - private
+
+-(void)updateLabels {
     self.ISBNLabel.text = [self.currentListing objectForKey:@"isbn"];
     self.titleLabel.text = [self.currentListing objectForKey:@"title"];
     self.editionLabel.text = [self.currentListing objectForKey:@"edition"];
@@ -70,19 +105,9 @@
     
     self.commentsLabel.text = [self.currentListing objectForKey:@"comments"];
     self.expirationDateLabel.text = [self.currentListing objectForKey:@"expirationdate"];
-    //self.sellerButton.titleLabel.text = [self.currentListing objectForKey:@"isbn"];
-    //self.phoneNumberLabel.text = [self.currentListing objectForKey:@"isbn"];
-
+    
+    [self.sellerButton setTitle:[NSString stringWithFormat:@"%@ %@", [self.listingSeller objectForKey:@"firstname"], [self.listingSeller objectForKey:@"lastname"]] forState:UIControlStateNormal];
+    self.phoneNumberLabel.text = [self.listingSeller objectForKey:@"phonenum"];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -37,12 +37,12 @@
         [self.usernameTextField.text isEqualToString:@""] ||
         [self.passwordTextField.text isEqualToString:@""] ||
         [self.confirmPasswordTextField.text isEqualToString:@""]) {
-            NSLog(@"All fields required.");
+            [self displayAlertWithTitle:@"Invalid Input" AndMessage:@"All fields are required"];
             return;
     }
     
     if (self.passwordTextField.text != self.confirmPasswordTextField.text) {
-        NSLog(@"Passwords do not match.");
+        [self displayAlertWithTitle:@"Invalid Input" AndMessage:@"Passwords do not match"];
         return;
     }
     
@@ -60,7 +60,7 @@
             NSDictionary *dict = responseObject[i];
             
             if ([self.usernameTextField.text isEqualToString: [dict objectForKey:@"username"]]) {
-                NSLog(@"Username is unavailable.");
+                [self displayAlertWithTitle:@"Invalid Input" AndMessage:@"Username is unavailable"];
                 return;
             }
         }
@@ -102,6 +102,13 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"CreateAccountSegue"]) {
         //pass in valid user account info
+        self.firstNameTextField.text = @"";
+        self.lastNameTextField.text = @"";
+        self.emailTextField.text = @"";
+        self.phoneNumberTextField.text = @"";
+        self.usernameTextField.text = @"";
+        self.passwordTextField.text = @"";
+        self.confirmPasswordTextField.text = @"";
         [((MainMenuViewController *) [segue destinationViewController]) setCurrentUser:self.createdUser];
     }}
 
@@ -118,7 +125,6 @@
     NSArray *keys = @[ @"username", @"password", @"phonenum", @"firstname", @"lastname", @"photodir", @"location", @"transactioncount" ];
     
     NSDictionary *dataToPost = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
-    self.createdUser = dataToPost;
     
     NSError *error;
     NSData *postData = [NSJSONSerialization dataWithJSONObject:dataToPost options:0 error:&error];
@@ -137,11 +143,47 @@
                                    // jump back to the main thread to update the UI
                                    dispatch_async(dispatch_get_main_queue(), ^{
                                        NSLog(@"All going well...");
-                                       [self performSegueWithIdentifier:@"CreateAccountSegue" sender:self];
+                                       [self setUserWithUsername:self.usernameTextField.text];
                                    });
                                }
                            }
      ];
+}
+
+-(void)setUserWithUsername:(NSString *)username {
+    NSString *usersUrl = @"http://textbooky.csse.rose-hulman.edu:8000/users/";
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:usersUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        for (int i = 0; i <= [responseObject count] ; i++) {
+            if (i == [responseObject count]) {
+                NSLog(@"No user found...");
+                return;
+            }
+            
+            NSDictionary *dict = responseObject[i];
+            
+            if ([username isEqualToString: [dict objectForKey:@"username"]]) {
+                self.createdUser = dict;
+                [self performSegueWithIdentifier:@"CreateAccountSegue" sender:self];
+                return;
+            }
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+
+-(void)displayAlertWithTitle:(NSString *)title AndMessage:(NSString *)message {
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:title
+                                                                   message:message
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {}];
+    
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 -(void)dismissKeyboard {

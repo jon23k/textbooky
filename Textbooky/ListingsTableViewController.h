@@ -10,4 +10,8 @@
 
 @interface ListingsTableViewController : UITableViewController
 
+- (void)setCurrentUser:(NSDictionary*)dict;
+
+@property (nonatomic, strong) NSDictionary *currentUser;
+
 @end

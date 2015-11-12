@@ -97,6 +97,42 @@
                                                                           action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
+    
+    //deletion
+    /*
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
+                                    initWithURL:[NSURL
+                                                 URLWithString:@"http://textbooky.csse.rose-hulman.edu:8000/users/26/"]];
+    [request setHTTPMethod:@"DELETE"];
+    [request setValue:@"application/JSON" forHTTPHeaderField:@"Content-type"];
+    
+    NSArray *objects = @[ @"miskowbs", @"pass123", @"8129876543", @"Bart", @"Miskowiec", @"not applicable", @"not applicable", @0 ];
+    NSArray *keys = @[ @"username", @"password", @"phonenum", @"firstname", @"lastname", @"photodir", @"location", @"transactioncount" ];
+    
+    NSDictionary *dataToPost = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
+    
+    NSError *error;
+    NSData *postData = [NSJSONSerialization dataWithJSONObject:dataToPost options:0 error:&error];
+    [request setHTTPBody:postData];
+    
+    [NSURLConnection sendAsynchronousRequest: request
+                                       queue: [NSOperationQueue mainQueue]
+                           completionHandler: ^(NSURLResponse *urlResponse, NSData *responseData, NSError *requestError) {
+                               // Check for Errors
+                               if (requestError || !responseData) {
+                                   // jump back to the main thread to update the UI
+                                   dispatch_async(dispatch_get_main_queue(), ^{
+                                       NSLog(@"Something went wrong...");
+                                   });
+                               } else {
+                                   // jump back to the main thread to update the UI
+                                   dispatch_async(dispatch_get_main_queue(), ^{
+                                       NSLog(@"All going well...");
+                                   });
+                               }
+                           }
+     ];
+     */
 }
 
 
@@ -108,7 +144,10 @@
     // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"SignInSegue"]) {
         //pass in valid user account info
+        self.usernameTextField.text = @"";
+        self.passwordTextField.text = @"";
         [((MainMenuViewController *) [segue destinationViewController]) setCurrentUser:self.currentUser];
+
     }
 }
 

@@ -13,4 +13,8 @@
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
+- (void)setListings:(NSArray*)dict;
+
+@property (nonatomic, strong) NSArray *listings;
+
 @end

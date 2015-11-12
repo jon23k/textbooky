@@ -40,11 +40,9 @@
         [self.priceTextField.text isEqualToString:@""] ||
         [self.commentsTextField.text isEqualToString:@""] ||
         [self.expirationTextField.text isEqualToString:@""]) {
-        NSLog(@"All fields required.");
+        [self displayAlertWithTitle:@"Invalid Input" AndMessage:@"All fields are required"];
         return;
     }
-    
-    NSLog(@"calling postToListingsAPI");
     
     [self postToListingsAPI];
     
@@ -75,6 +73,17 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"PostListingSegue"]) {
+        self.ISBNTextField.text = @"";
+        self.titleTextField.text = @"";
+        self.authorTextField.text = @"";
+        self.editionTextField.text = @"";
+        self.conditionTextField.text = @"";
+        self.priceTextField.text = @"";
+        self.commentsTextField.text = @"";
+        self.expirationTextField.text = @"";
+        [((ListingsTableViewController *)[((UINavigationController *) [segue destinationViewController]) viewControllers][0]) setCurrentUser:self.currentUser];
+    }
 }
 
 
@@ -87,8 +96,6 @@
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/JSON" forHTTPHeaderField:@"Content-type"];
     
-    NSLog(@"creating dictionary arrays");
-    
     NSString *currentUserID = [NSString stringWithFormat:@"http://textbooky.csse.rose-hulman.edu:8000/users/%@/", [self.currentUser objectForKey:@"userid"]];
     
     //need to figure out how to parse boolean/integers
@@ -98,13 +105,9 @@
     NSDictionary *dataToPost = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     self.createdPost = dataToPost;
     
-    NSLog(@"Serializing JSON");
-    
     NSError *error;
     NSData *postData = [NSJSONSerialization dataWithJSONObject:dataToPost options:0 error:&error];
     [request setHTTPBody:postData];
-    
-    NSLog(@"calling deprecated functions");
     
     [NSURLConnection sendAsynchronousRequest: request
                                        queue: [NSOperationQueue mainQueue]
@@ -124,6 +127,18 @@
                                }
                            }
      ];
+}
+
+-(void)displayAlertWithTitle:(NSString *)title AndMessage:(NSString *)message {
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:title
+                                                                   message:message
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {}];
+    
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 -(void)dismissKeyboard {
